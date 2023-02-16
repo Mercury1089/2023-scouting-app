@@ -7,14 +7,18 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.WindowInsets;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.view.WindowInsetsCompat;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
+//init
 public class SplashActivity extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer;
@@ -24,7 +28,11 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_activity);
-
+//        WindowInsets insets = this.getWindowManager().getCurrentWindowMetrics().getWindowInsets();
+//        int statusBarHeight = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top; //in pixels
+//        int navigationBarHeight = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom; //in pixels
+//        System.out.println("Status bar height: " + statusBarHeight);
+//        System.out.println("Navbar height: " + navigationBarHeight);
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
