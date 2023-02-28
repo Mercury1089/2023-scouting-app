@@ -1,9 +1,9 @@
-package com.mercury1089.scoutingapp2019.utils;
+package com.mercury1089.scoutingapp2023.utils;
 
 import android.content.Context;
 import android.widget.TextView;
 
-import com.mercury1089.scoutingapp2019.R;
+import com.mercury1089.scoutingapp2023.R;
 
 import at.markushi.ui.CircleButton;
 

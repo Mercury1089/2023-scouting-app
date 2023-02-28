@@ -1,23 +1,19 @@
-package com.mercury1089.scoutingapp2019;
+package com.mercury1089.scoutingapp2023;
 
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.PopupWindow;
 import android.widget.Switch;
 import android.widget.TextView;
-import androidx.constraintlayout.widget.ConstraintLayout;
+
 import androidx.fragment.app.Fragment;
 
-import com.mercury1089.scoutingapp2019.utils.GenUtils;
+import com.mercury1089.scoutingapp2023.utils.GenUtils;
 import java.util.LinkedHashMap;
-import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
 public class Teleop extends Fragment {
     //HashMaps for sending QR data between screens

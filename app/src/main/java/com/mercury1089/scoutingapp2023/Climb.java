@@ -1,13 +1,10 @@
-package com.mercury1089.scoutingapp2019;
+package com.mercury1089.scoutingapp2023;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,8 +23,8 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
-import com.mercury1089.scoutingapp2019.utils.GenUtils;
-import com.mercury1089.scoutingapp2019.utils.QRStringBuilder;
+import com.mercury1089.scoutingapp2023.utils.GenUtils;
+import com.mercury1089.scoutingapp2023.utils.QRStringBuilder;
 
 public class Climb extends Fragment {
     //HashMaps for sending QR data between screens
