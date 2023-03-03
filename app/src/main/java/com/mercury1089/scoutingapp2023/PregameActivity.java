@@ -23,6 +23,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,6 +46,9 @@ public class PregameActivity extends AppCompatActivity {
     private ImageButton settingsButton;
     private Button blueButton;
     private Button redButton;
+    private Button coneButton;
+    private Button cubeButton;
+    private Button noPreloadButton;
     private Button clearButton;
     private Button startButton;
 
@@ -57,7 +61,6 @@ public class PregameActivity extends AppCompatActivity {
 
     //Switches
     private Switch noShowSwitch;
-    private Switch preloadSwitch;
 
     //HashMaps
     private LinkedHashMap<String, String> settingsHashMap;
@@ -88,8 +91,10 @@ public class PregameActivity extends AppCompatActivity {
         secondAlliancePartnerInput = findViewById(R.id.SecondAlliancePartnerInput);
         blueButton = findViewById(R.id.BlueButton);
         redButton = findViewById(R.id.RedButton);
+        coneButton = findViewById(R.id.coneButton);
+        cubeButton = findViewById(R.id.cubeButton);
+        noPreloadButton = findViewById(R.id.noPreloadButton);
         noShowSwitch = findViewById(R.id.NoShowSwitch);
-        preloadSwitch = findViewById(R.id.PreloadedCargoSwitch);
         clearButton = findViewById(R.id.ClearButton);
         startButton = findViewById(R.id.StartButton);
         settingsButton = findViewById(R.id.SettingsButton);
@@ -179,7 +184,6 @@ public class PregameActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked)
                     setupHashMap.put("PreloadCargo", "0");
-                preloadSwitch.setEnabled(!isChecked);
                 setupHashMap.put("NoShow", isChecked ? "1" : "0");
                 updateXMLObjects(false);
             }
@@ -337,6 +341,14 @@ public class PregameActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 setupHashMap.put("AllianceColor", setupHashMap.get("AllianceColor").equals("Red") ? "" : "Red");
+                updateXMLObjects(false);
+            }
+        });
+
+        coneButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //PutPreload in SetupHashMap
                 updateXMLObjects(false);
             }
         });
@@ -520,12 +532,6 @@ public class PregameActivity extends AppCompatActivity {
 
         if(settingsHashMap.get("Slack").equals("1"))
             slackCenter.setVisibility(View.VISIBLE);
-
-        if (setupHashMap.get("PreloadCargo").equals("1")) {
-            preloadSwitch.setChecked(true);
-        } else {
-            preloadSwitch.setChecked(false);
-        }
 
         if(setupHashMap.get("NoShow").equals("1")) {
             noShowSwitch.setChecked(true);

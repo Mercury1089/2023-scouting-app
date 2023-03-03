@@ -13,18 +13,6 @@
     tools:context=".PregameActivity">
 
 
-    <Switch
-        android:id="@+id/PreloadedCargoSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:thumb="@drawable/thumb_states"
-        android:track="@drawable/track_states"
-        app:layout_constraintStart_toStartOf="@+id/IDToggleInstructions"
-        app:layout_constraintTop_toBottomOf="@+id/IDToggleInstructions" />
-
     <TextView
         android:id="@+id/IDSetupDirections"
         android:layout_width="wrap_content"
@@ -71,11 +59,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:thumb="@drawable/thumb_states"
         android:track="@drawable/track_states"
-        app:layout_constraintStart_toStartOf="@+id/PreloadedCargoSwitch"
-        app:layout_constraintTop_toBottomOf="@+id/PreloadedCargoSwitch" />
+        app:layout_constraintStart_toStartOf="@id/IDToggleInstructions"
+        app:layout_constraintTop_toBottomOf="@+id/IDToggleInstructions" />
 
     <TextView
         android:id="@+id/IDMatchNumber"
@@ -194,19 +182,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/NoShowSwitch"
         app:layout_constraintStart_toEndOf="@+id/NoShowSwitch"
         app:layout_constraintTop_toTopOf="@+id/NoShowSwitch" />
-
-    <TextView
-        android:id="@+id/IDPreloadedCargo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:fontFamily="@font/open_sans"
-        android:text="@string/PreloadedCargo"
-        android:textColor="@drawable/text_states"
-        android:textSize="@dimen/label_text_size"
-        app:layout_constraintBottom_toBottomOf="@+id/PreloadedCargoSwitch"
-        app:layout_constraintStart_toEndOf="@+id/PreloadedCargoSwitch"
-        app:layout_constraintTop_toTopOf="@+id/PreloadedCargoSwitch" />
 
     <TextView
         android:id="@+id/IDAllianceColor"
@@ -340,6 +315,59 @@
         android:textSize="@dimen/instruction_text_size"
         app:layout_constraintStart_toStartOf="@+id/FirstAlliancePartnerInput"
         app:layout_constraintTop_toBottomOf="@+id/FirstAlliancePartnerInput" />
+
+    <RadioGroup
+        android:id="@+id/preloadSelector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="?android:attr/dividerHorizontal"
+        android:showDividers="middle"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@id/FirstAlliancePartnerInput"
+        app:layout_constraintTop_toBottomOf="@id/NoShowSwitch">
+
+        <Button
+            android:id="@+id/coneButton"
+            android:layout_width="@dimen/alliance_color_width"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="1"
+            android:background="@drawable/toggle_blue_states"
+            android:fontFamily="@font/open_sans"
+            android:gravity="center"
+            android:text="@string/Cone"
+            android:textColor="@drawable/text_states"
+            android:textSize="@dimen/button_text_size"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/cubeButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="1"
+            android:background="@drawable/toggle_blue_states"
+            android:fontFamily="@font/open_sans"
+            android:gravity="center"
+            android:text="@string/Cube"
+            android:textColor="@drawable/text_states"
+            android:textSize="@dimen/button_text_size"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/noPreloadButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="1"
+            android:background="@drawable/toggle_blue_states"
+            android:fontFamily="@font/open_sans"
+            android:gravity="center"
+            android:text="@string/None"
+            android:textColor="@drawable/text_states"
+            android:textSize="@dimen/button_text_size"
+            tools:visibility="visible" />
+    </RadioGroup>
+
+</RadioGroup>
 
     <!-- Left field side buttons -->
 

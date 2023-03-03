@@ -45,6 +45,9 @@
         <string name="Blue">BLUE</string>
         <string name="Red">RED</string>
         <string name="NoShow">No Show</string>
+        <string name="Cone">Cone</string>
+        <string name="Cube">Cube</string>
+        <string name="None">None</string>
         <string name="Clear">CLEAR</string>
         <string name="Start">START</string>
         <string name="GenerateQRCode">GENERATE QR CODE</string>
