@@ -315,7 +315,7 @@ public class HashMapManager{
                 setupHashMap.put("MatchNumber", "");
                 setupHashMap.put("TeamNumber", "");
                 setupHashMap.put("NoShow", "0");
-                setupHashMap.put("PreloadCargo", "0");
+                setupHashMap.put("Preload", "0"); //Will either be Co, Cu, or N (Cone, Cube, or None)
                 setupHashMap.put("AlliancePartner1", "");
                 setupHashMap.put("AlliancePartner2", "");
                 setupHashMap.put("AllianceColor", "");
@@ -325,28 +325,49 @@ public class HashMapManager{
             case AUTON:
                 //include all the items that will be in the autonHashMap
                 autonHashMap.put("HashMapName", "Auton");
-                autonHashMap.put("NumberPickedUp", "0");
-                autonHashMap.put("ScoredUpper", "0");
-                autonHashMap.put("ScoredLower", "0");
-                autonHashMap.put("MissedUpper", "0");
-                autonHashMap.put("MissedLower", "0");
-                autonHashMap.put("Taxi", "0");
+                autonHashMap.put("CubePossessed", "0");
+                autonHashMap.put("ConePossessed", "0");
+                autonHashMap.put("CubeScoredHybrid", "0");
+                autonHashMap.put("CubeScoredMid", "0");
+                autonHashMap.put("CubeScoredHigh", "0");
+                autonHashMap.put("CubeMissedHybrid", "0");
+                autonHashMap.put("CubeMissedMid", "0");
+                autonHashMap.put("CubeMissedHigh", "0");
+                autonHashMap.put("ConeScoredHybrid", "0");
+                autonHashMap.put("ConeScoredMid", "0");
+                autonHashMap.put("ConeScoredHigh", "0");
+                autonHashMap.put("ConeMissedHybrid", "0");
+                autonHashMap.put("ConeMissedMid", "0");
+                autonHashMap.put("ConeMissedHigh", "0");
+                autonHashMap.put("Mobility", "0");
                 break;
             case TELEOP:
                 //include all the items that will be in the teleopHashMap
                 teleopHashMap.put("HashMapName", "Teleop");
-                teleopHashMap.put("NumberPickedUp", "0");
+                teleopHashMap.put("CubePossessed", "0");
+                teleopHashMap.put("ConePossessed", "0");
                 teleopHashMap.put("ScoredUpper", "0");
                 teleopHashMap.put("ScoredLower", "0");
                 teleopHashMap.put("MissedUpper", "0");
                 teleopHashMap.put("MissedLower", "0");
+                teleopHashMap.put("CubeScoredHybrid", "0");
+                teleopHashMap.put("CubeScoredMid", "0");
+                teleopHashMap.put("CubeScoredHigh", "0");
+                teleopHashMap.put("CubeMissedHybrid", "0");
+                teleopHashMap.put("CubeMissedMid", "0");
+                teleopHashMap.put("CubeMissedHigh", "0");
+                teleopHashMap.put("ConeScoredHybrid", "0");
+                teleopHashMap.put("ConeScoredMid", "0");
+                teleopHashMap.put("ConeScoredHigh", "0");
+                teleopHashMap.put("ConeMissedHybrid", "0");
+                teleopHashMap.put("ConeMissedMid", "0");
+                teleopHashMap.put("ConeMissedHigh", "0");
                 break;
             case CLIMB:
                 //include all the items that will be in the climbHashMap
                 climbHashMap.put("HashMapName", "Climb");
-                climbHashMap.put("Climbed", "0"); //Value to update climbedSwitch (not part of QRString)
-                //If robot didn't climb, value will be 0. Otherwise, it will be "L", "M", "H", or "T"
-                climbHashMap.put("Rung", "0");
+                //Will be D, N, P, or N (Dock, Engage, Park, or None)
+                climbHashMap.put("Pos", "0");
                 break;
         }
     }

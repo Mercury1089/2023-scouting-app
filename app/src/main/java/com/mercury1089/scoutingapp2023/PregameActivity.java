@@ -189,15 +189,6 @@ public class PregameActivity extends AppCompatActivity {
             }
         });
 
-        //starting listener to check status of switch
-        preloadSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                setupHashMap.put("PreloadCargo", isChecked ? "1" : "0");
-                updateXMLObjects(false);
-            }
-        });
-
         //click methods
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -348,7 +339,23 @@ public class PregameActivity extends AppCompatActivity {
         coneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //PutPreload in SetupHashMap
+                setupHashMap.put("Preload", "Co");
+                updateXMLObjects(false);
+            }
+        });
+
+        coneButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setupHashMap.put("Preload", "Cu");
+                updateXMLObjects(false);
+            }
+        });
+
+        noPreloadButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setupHashMap.put("Preload", "N");
                 updateXMLObjects(false);
             }
         });
@@ -493,29 +500,27 @@ public class PregameActivity extends AppCompatActivity {
     }
 
     private void startButtonCheck() {
-        if(scouterNameInput.getText().length() > 0 &&
+        //DON'T DO THE THING (if (true) return true; else return false;)
+        startButton.setEnabled(scouterNameInput.getText().length() > 0 &&
                 matchNumberInput.getText().length() > 0 &&
                 teamNumberInput.getText().length() > 0 &&
                 firstAlliancePartnerInput.getText().length() > 0 &&
                 secondAlliancePartnerInput.getText().length() > 0 &&
                 (blueButton.isSelected() || redButton.isSelected()) &&
-                ((setupHashMap.get("NoShow").equals("0")) || setupHashMap.get("NoShow").equals("1")))
-                startButton.setEnabled(true);
-        else
-            startButton.setEnabled(false);
+                ((setupHashMap.get("NoShow").equals("0")) || setupHashMap.get("NoShow").equals("1")));
+
     }
 
     private void clearButtonCheck() {
-        if(scouterNameInput.getText().length() > 0 ||
+        //DON'T DO THE THING
+        clearButton.setEnabled(scouterNameInput.getText().length() > 0 ||
                 matchNumberInput.getText().length() > 0 ||
                 teamNumberInput.getText().length() > 0 ||
                 noShowSwitch.isChecked() ||
                 firstAlliancePartnerInput.getText().length() > 0 ||
                 secondAlliancePartnerInput.getText().length() > 0 ||
-                blueButton.isSelected() || redButton.isSelected())
-            clearButton.setEnabled(true);
-        else
-            clearButton.setEnabled(false);
+                blueButton.isSelected() || redButton.isSelected() ||
+                coneButton.isSelected() || cubeButton.isSelected() || noPreloadButton.isSelected());
     }
 
     private void updateXMLObjects(boolean updateText){
@@ -530,18 +535,20 @@ public class PregameActivity extends AppCompatActivity {
         blueButton.setSelected(setupHashMap.get("AllianceColor").equals("Blue"));
         redButton.setSelected(setupHashMap.get("AllianceColor").equals("Red"));
 
+        coneButton.setSelected(setupHashMap.get("Preload").equals("Co"));
+        cubeButton.setSelected(setupHashMap.get("Preload").equals("Cu"));
+        noPreloadButton.setSelected(setupHashMap.get("Preload").equals("N"));
+
         if(settingsHashMap.get("Slack").equals("1"))
             slackCenter.setVisibility(View.VISIBLE);
 
         if(setupHashMap.get("NoShow").equals("1")) {
             noShowSwitch.setChecked(true);
-
             startButton.setPadding(185, 0, 185, 0);
             startButton.setText(R.string.GenerateQRCode);
             isQRButton = true;
         } else {
             noShowSwitch.setChecked(false);
-
             startButton.setPadding(234, 0, 234, 0);
             startButton.setText(R.string.Start);
             isQRButton = false;
