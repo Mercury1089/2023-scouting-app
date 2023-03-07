@@ -344,7 +344,7 @@ public class PregameActivity extends AppCompatActivity {
             }
         });
 
-        coneButton.setOnClickListener(new View.OnClickListener() {
+        cubeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setupHashMap.put("Preload", "Cu");

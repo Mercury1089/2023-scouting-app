@@ -321,9 +321,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:divider="?android:attr/dividerHorizontal"
+        android:orientation="horizontal"
         android:showDividers="middle"
         android:layout_marginTop="20dp"
-        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="@id/FirstAlliancePartnerInput"
         app:layout_constraintTop_toBottomOf="@id/NoShowSwitch">
 
@@ -331,21 +331,25 @@
             android:id="@+id/coneButton"
             android:layout_width="@dimen/alliance_color_width"
             android:layout_height="@dimen/button_height"
+            android:paddingHorizontal="@dimen/button_with_icon_padding"
             android:layout_weight="1"
             android:background="@drawable/cone_button_states"
+            android:drawableStart="@drawable/cone_button_icon_states"
             android:fontFamily="@font/open_sans"
             android:gravity="center"
             android:text="@string/Cone"
-            android:textColor="@drawable/text_states"
+            android:textColor="@drawable/cone_button_text_states"
             android:textSize="@dimen/button_text_size"
             tools:visibility="visible" />
 
         <Button
             android:id="@+id/cubeButton"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/alliance_color_width"
             android:layout_height="@dimen/button_height"
+            android:paddingHorizontal="@dimen/button_with_icon_padding"
             android:layout_weight="1"
             android:background="@drawable/cube_button_states"
+            android:drawableStart="@drawable/cube"
             android:fontFamily="@font/open_sans"
             android:gravity="center"
             android:text="@string/Cube"
@@ -355,10 +359,10 @@
 
         <Button
             android:id="@+id/noPreloadButton"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/alliance_color_width"
             android:layout_height="@dimen/button_height"
             android:layout_weight="1"
-            android:background="@drawable/toggle_blue_states"
+            android:background="@drawable/button_states"
             android:fontFamily="@font/open_sans"
             android:gravity="center"
             android:text="@string/None"

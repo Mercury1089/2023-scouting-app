@@ -315,7 +315,7 @@ public class HashMapManager{
                 setupHashMap.put("MatchNumber", "");
                 setupHashMap.put("TeamNumber", "");
                 setupHashMap.put("NoShow", "0");
-                setupHashMap.put("Preload", "0"); //Will either be Co, Cu, or N (Cone, Cube, or None)
+                setupHashMap.put("Preload", "N"); //Will either be Co, Cu, or N (Cone, Cube, or None)
                 setupHashMap.put("AlliancePartner1", "");
                 setupHashMap.put("AlliancePartner2", "");
                 setupHashMap.put("AllianceColor", "");
