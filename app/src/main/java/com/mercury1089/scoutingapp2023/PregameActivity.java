@@ -34,6 +34,9 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.mercury1089.scoutingapp2023.utils.QRStringBuilder;
+import com.mercury1089.scoutingapp2023.utils.TeamRoster;
+
+import java.io.IOException;
 import java.util.LinkedHashMap;
 
 public class PregameActivity extends AppCompatActivity {
@@ -105,6 +108,14 @@ public class PregameActivity extends AppCompatActivity {
         settingsHashMap = HashMapManager.getSettingsHashMap();
         setupHashMap = HashMapManager.getSetupHashMap();
         password = settingsHashMap.get("DefaultPassword");
+
+        //Setting scouter name hint to random name from roster
+        try {
+            TeamRoster tr = new TeamRoster(getApplicationContext());
+            scouterNameInput.setHint(tr.getRandomName());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         //setting group buttons to default state
         updateXMLObjects(true);

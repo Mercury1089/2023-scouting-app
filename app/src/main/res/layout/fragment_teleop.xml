@@ -12,7 +12,7 @@
 
 
     <TextView
-        android:id="@+id/scoredLowerCounter"
+        android:id="@+id/cubesPossessedCounter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="@+id/ScoredLowerToggle" />
 
     <TextView
-        android:id="@+id/missedLowerCounter"
+        android:id="@+id/cubesMissedCounter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -53,12 +53,12 @@
         android:divider="?android:attr/dividerHorizontal"
         android:orientation="horizontal"
         android:showDividers="middle"
-        app:layout_constraintBottom_toBottomOf="@+id/IDScoredLower"
-        app:layout_constraintStart_toEndOf="@+id/IDScoredLower"
-        app:layout_constraintTop_toTopOf="@+id/IDScoredLower">
+        app:layout_constraintBottom_toBottomOf="@+id/IDCubesPossessed"
+        app:layout_constraintStart_toEndOf="@+id/IDCubesPossessed"
+        app:layout_constraintTop_toTopOf="@+id/IDCubesPossessed">
 
         <ImageButton
-            android:id="@+id/notScoredLowerButton"
+            android:id="@+id/cubeNotPossessedButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="wrap_content"
             android:background="@drawable/toggle_left_states"
@@ -69,7 +69,7 @@
             tools:ignore="ContentDescription" />
 
         <ImageButton
-            android:id="@+id/scoredLowerButton"
+            android:id="@+id/cubePossessedButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
             android:layout_weight="1"
@@ -88,12 +88,12 @@
         android:divider="?android:attr/dividerHorizontal"
         android:orientation="horizontal"
         android:showDividers="middle"
-        app:layout_constraintBottom_toBottomOf="@+id/IDMissedLower"
-        app:layout_constraintStart_toEndOf="@+id/IDMissedLower"
-        app:layout_constraintTop_toTopOf="@+id/IDMissedLower">
+        app:layout_constraintBottom_toBottomOf="@+id/IDCubesMissed"
+        app:layout_constraintStart_toEndOf="@+id/IDCubesMissed"
+        app:layout_constraintTop_toTopOf="@+id/IDCubesMissed">
 
         <ImageButton
-            android:id="@+id/notMissedLowerButton"
+            android:id="@+id/cubeNotMissedButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="wrap_content"
             android:background="@drawable/toggle_left_states"
@@ -104,7 +104,7 @@
             tools:ignore="ContentDescription" />
 
         <ImageButton
-            android:id="@+id/missedLowerButton"
+            android:id="@+id/cubeMissedButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
             android:layout_weight="1"
@@ -117,7 +117,7 @@
     </RadioGroup>
 
     <TextView
-        android:id="@+id/IDMissedLower"
+        android:id="@+id/IDCubesMissed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -125,36 +125,36 @@
         android:text="@string/Missed"
         android:textColor="@drawable/text_states"
         android:textSize="@dimen/button_text_size"
-        app:layout_constraintStart_toStartOf="@+id/IDScoredLower"
-        app:layout_constraintTop_toBottomOf="@+id/IDScoredLower" />
+        app:layout_constraintStart_toStartOf="@+id/IDCubesPossessed"
+        app:layout_constraintTop_toBottomOf="@+id/IDCubesPossessed" />
 
     <TextView
-        android:id="@+id/IDScoredLower"
+        android:id="@+id/IDCubesPossessed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:fontFamily="@font/open_sans"
-        android:text="@string/Scored"
+        android:text="test"
         android:textColor="@drawable/text_states"
         android:textSize="@dimen/button_text_size"
-        app:layout_constraintStart_toStartOf="@+id/IDLowerHub"
-        app:layout_constraintTop_toBottomOf="@+id/IDLowerHub" />
+        app:layout_constraintStart_toStartOf="@+id/IDCubes"
+        app:layout_constraintTop_toBottomOf="@+id/IDCubes" />
 
     <TextView
-        android:id="@+id/IDLowerHub"
+        android:id="@+id/IDCubes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="210dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/futura_medium_condensed_bt"
-        android:text="@string/LowerHub"
+        android:text="@string/Cubes"
         android:textColor="@drawable/subead_states"
         android:textSize="@dimen/subheader_text_size"
-        app:layout_constraintStart_toEndOf="@+id/IDUpperHub"
+        app:layout_constraintStart_toEndOf="@+id/IDCones"
         app:layout_constraintTop_toBottomOf="@+id/IDScoringDirections" />
 
     <TextView
-        android:id="@+id/scoredUpperCounter"
+        android:id="@+id/ConeScoredTopCounter"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_marginStart="12dp"
@@ -171,7 +171,7 @@
         app:layout_constraintTop_toTopOf="@id/ScoredUpperToggle" />
 
     <TextView
-        android:id="@+id/missedUpperCounter"
+        android:id="@+id/ConeScoredMidCounter"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_marginStart="12dp"
@@ -195,12 +195,12 @@
         android:divider="?android:attr/dividerHorizontal"
         android:orientation="horizontal"
         android:showDividers="middle"
-        app:layout_constraintBottom_toBottomOf="@+id/IDScoredUpper"
-        app:layout_constraintStart_toEndOf="@+id/IDScoredUpper"
-        app:layout_constraintTop_toTopOf="@+id/IDScoredUpper">
+        app:layout_constraintBottom_toBottomOf="@+id/IDConesScoredTop"
+        app:layout_constraintStart_toEndOf="@+id/IDConesScoredTop"
+        app:layout_constraintTop_toTopOf="@+id/IDConesScoredTop">
 
         <ImageButton
-            android:id="@+id/notScoredUpperButton"
+            android:id="@+id/ConeNotScoredTopButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="wrap_content"
             android:background="@drawable/toggle_left_states"
@@ -211,7 +211,7 @@
             tools:ignore="ContentDescription" />
 
         <ImageButton
-            android:id="@+id/scoredUpperButton"
+            android:id="@+id/ConeScoredTopButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
             android:layout_weight="1"
@@ -230,12 +230,12 @@
         android:divider="?android:attr/dividerHorizontal"
         android:orientation="horizontal"
         android:showDividers="middle"
-        app:layout_constraintBottom_toBottomOf="@+id/IDMissedUpper"
-        app:layout_constraintStart_toEndOf="@+id/IDMissedUpper"
-        app:layout_constraintTop_toTopOf="@+id/IDMissedUpper">
+        app:layout_constraintBottom_toBottomOf="@+id/IDConesScoredMid"
+        app:layout_constraintStart_toEndOf="@+id/IDConesScoredMid"
+        app:layout_constraintTop_toTopOf="@+id/IDConesScoredMid">
 
         <ImageButton
-            android:id="@+id/notMissedUpperButton"
+            android:id="@+id/ConeNotScoredHybridButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="wrap_content"
             android:background="@drawable/toggle_left_states"
@@ -246,7 +246,7 @@
             tools:ignore="ContentDescription" />
 
         <ImageButton
-            android:id="@+id/missedUpperButton"
+            android:id="@+id/ConeScoredHybridButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
             android:layout_weight="1"
@@ -258,7 +258,7 @@
     </RadioGroup>
 
     <TextView
-        android:id="@+id/IDMissedUpper"
+        android:id="@+id/IDConesScoredMid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -266,29 +266,29 @@
         android:text="@string/Missed"
         android:textColor="@drawable/text_states"
         android:textSize="@dimen/button_text_size"
-        app:layout_constraintStart_toStartOf="@+id/IDScoredUpper"
-        app:layout_constraintTop_toBottomOf="@+id/IDScoredUpper" />
+        app:layout_constraintStart_toStartOf="@+id/IDConesScoredTop"
+        app:layout_constraintTop_toBottomOf="@+id/IDConesScoredTop" />
 
     <TextView
-        android:id="@+id/IDScoredUpper"
+        android:id="@+id/IDConesScoredTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:fontFamily="@font/open_sans"
-        android:text="@string/Scored"
+        android:text="test"
         android:textColor="@drawable/text_states"
         android:textSize="@dimen/button_text_size"
-        app:layout_constraintStart_toStartOf="@+id/IDUpperHub"
-        app:layout_constraintTop_toBottomOf="@+id/IDUpperHub" />
+        app:layout_constraintStart_toStartOf="@+id/IDCones"
+        app:layout_constraintTop_toBottomOf="@+id/IDCones" />
 
     <TextView
-        android:id="@+id/IDUpperHub"
+        android:id="@+id/IDCones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/futura_medium_condensed_bt"
-        android:text="@string/UpperHub"
+        android:text="@string/Cones"
         android:textColor="@drawable/subead_states"
         android:textSize="@dimen/subheader_text_size"
         app:layout_constraintStart_toStartOf="@+id/leftEdgeBar"
@@ -316,7 +316,7 @@
         android:textColor="@drawable/header_states"
         android:textSize="@dimen/header_text_size"
         app:layout_constraintStart_toStartOf="@+id/IDPossession"
-        app:layout_constraintTop_toBottomOf="@+id/PickedUpToggle" />
+        app:layout_constraintTop_toBottomOf="@+id/ConesPossessedToggle" />
 
     <TextView
         android:id="@+id/IDPossessionDirections"
@@ -341,18 +341,18 @@
         app:layout_constraintTop_toBottomOf="@+id/IDScoring" />
 
     <TextView
-        android:id="@+id/IDPickedUp"
+        android:id="@+id/IDConesPickedUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="@string/PickedUp"
+        android:text="test"
         android:textColor="@drawable/text_states"
         android:textSize="@dimen/label_text_size"
         app:layout_constraintStart_toStartOf="@+id/IDPossessionDirections"
         app:layout_constraintTop_toBottomOf="@+id/IDPossessionDirections" />
 
     <TextView
-        android:id="@+id/PickedUpCounter"
+        android:id="@+id/ConeMissedCounter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -363,24 +363,24 @@
         android:text="@string/DefaultValue"
         android:textColor="@drawable/text_states"
         android:textSize="@dimen/instruction_text_size"
-        app:layout_constraintBottom_toBottomOf="@+id/IDPickedUp"
-        app:layout_constraintStart_toEndOf="@+id/PickedUpToggle"
-        app:layout_constraintTop_toTopOf="@+id/IDPickedUp" />
+        app:layout_constraintBottom_toBottomOf="@+id/IDConesPickedUp"
+        app:layout_constraintStart_toEndOf="@+id/ConesPossessedToggle"
+        app:layout_constraintTop_toTopOf="@+id/IDConesPickedUp" />
 
     <RadioGroup
-        android:id="@+id/PickedUpToggle"
+        android:id="@+id/ConesPossessedToggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:divider="?android:attr/dividerHorizontal"
         android:orientation="horizontal"
         android:showDividers="middle"
-        app:layout_constraintBottom_toBottomOf="@+id/IDPickedUp"
-        app:layout_constraintStart_toEndOf="@+id/IDPickedUp"
-        app:layout_constraintTop_toTopOf="@+id/IDPickedUp">
+        app:layout_constraintBottom_toBottomOf="@+id/IDConesPickedUp"
+        app:layout_constraintStart_toEndOf="@+id/IDConesPickedUp"
+        app:layout_constraintTop_toTopOf="@+id/IDConesPickedUp">
 
         <ImageButton
-            android:id="@+id/NotPickedUpButton"
+            android:id="@+id/ConeNotMissedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/toggle_left_states"
@@ -390,7 +390,7 @@
             tools:ignore="ContentDescription" />
 
         <ImageButton
-            android:id="@+id/PickedUpButton"
+            android:id="@+id/ConeMissedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/toggle_right_states"

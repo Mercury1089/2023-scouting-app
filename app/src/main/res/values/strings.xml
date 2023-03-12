@@ -83,12 +83,14 @@
     <!-- Auton -->
         <string name="AutonSeconds">AUTON SECONDS REMAINING</string>
         <string name="PossessionDirections">Tap the + and - buttons to increase or decrease the counter for each option.</string>
-        <string name="PickedUp">PICKED UP</string>
+        <string name="Possessed">POSSESSED</string>
         <string name="Dropped">DROPPED</string>
         <string name="Plus">+</string>
         <string name="Minus">-</string>
-        <string name="ScoringDirections">Tap the + or - buttons to record scored/missed cargo.</string>
-        <string name="Scored">SCORED</string>
+        <string name="ScoringDirections">Tap the + or - buttons to increase or decrease each counter.</string>
+        <string name="Top">TOP</string>
+        <string name="Mid">MID</string>
+        <string name="Hybrid">HYBRID</string>
         <string name="Missed">MISSED</string>
         <string name="MiscDirections">Tap on the toggle to mark if the action occurs.</string>
         <string name="Taxi">Taxi (Robot has left the tarmac)</string>
@@ -156,6 +158,6 @@
         <string name="NextMatch">SET UP NEXT MATCH</string>
     <string name="ToggleInstructions">Tap on the toggle to record if the options are true (on) or false (off).</string>
         <string name="PreloadedCargo">Preloaded Cargo</string>
-        <string name="UpperHub">UPPER HUB</string>
-        <string name="LowerHub">LOWER HUB</string>
+        <string name="Cones">CONES</string>
+        <string name="Cubes">CUBES</string>
 </resources>
