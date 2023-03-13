@@ -83,11 +83,12 @@
     <!-- Auton -->
         <string name="AutonSeconds">AUTON SECONDS REMAINING</string>
         <string name="PossessionDirections">Tap the + and - buttons to increase or decrease the counter for each option.</string>
-        <string name="Possessed">POSSESSED</string>
+        <string name="PickedUp">PICKED UP</string>
         <string name="Dropped">DROPPED</string>
         <string name="Plus">+</string>
         <string name="Minus">-</string>
         <string name="ScoringDirections">Tap the + or - buttons to increase or decrease each counter.</string>
+        <string name="Scored">SCORED</string>
         <string name="Top">TOP</string>
         <string name="Mid">MID</string>
         <string name="Hybrid">HYBRID</string>

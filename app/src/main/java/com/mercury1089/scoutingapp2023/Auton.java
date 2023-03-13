@@ -141,9 +141,9 @@ public class Auton extends Fragment {
 
         possessionID = getView().findViewById(R.id.IDPossession);
         possessionDescription = getView().findViewById(R.id.IDPossessionDirections);
-        conesPossessedID = getView().findViewById(R.id.IDConesPickedUp);
-        coneMissedIncrementButton = getView().findViewById(R.id.ConeMissedButton);
-        coneMissedDecrementButton = getView().findViewById(R.id.ConeNotMissedButton);
+        conesPossessedID = getView().findViewById(R.id.IDConesPossessed);
+        coneMissedIncrementButton = getView().findViewById(R.id.ConePossessedButton);
+        coneMissedDecrementButton = getView().findViewById(R.id.ConeNotPossessedButton);
         coneMissedCounter = getView().findViewById(R.id.ConeMissedCounter);
 
         scoringID = getView().findViewById(R.id.IDScoring);
@@ -471,7 +471,7 @@ public class Auton extends Fragment {
         possessionID.setEnabled(enable);
         possessionDescription.setEnabled(enable);
 
-        pickedUpID.setEnabled(enable);
+        .setEnabled(enable);
         coneMissedIncrementButton.setEnabled(enable);
         coneMissedDecrementButton.setEnabled(enable);
         coneMissedCounter.setEnabled(enable);

@@ -10,6 +10,116 @@
     android:padding="@dimen/padding"
     tools:context=".MatchActivity">
 
+    <TextView
+        android:id="@+id/IDCubesScoredMid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/open_sans"
+        android:text="@string/Mid"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/label_text_size"
+        app:layout_constraintStart_toStartOf="@+id/IDCubesScoredTop"
+        app:layout_constraintTop_toBottomOf="@+id/IDCubesScoredTop" />
+
+    <RadioGroup
+        android:id="@+id/CubesScoredTopToggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="?android:attr/dividerHorizontal"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        app:layout_constraintBottom_toBottomOf="@+id/IDCubesScoredTop"
+        app:layout_constraintStart_toStartOf="@+id/CubesPossessedToggle"
+        app:layout_constraintTop_toTopOf="@+id/IDCubesScoredTop"
+        app:layout_constraintVertical_bias="0.487">
+
+        <ImageButton
+            android:id="@+id/ConeNotPossessedButton"
+            android:layout_width="@dimen/square_toggle_length"
+            android:layout_height="@dimen/square_toggle_length"
+            android:background="@color/grape"
+            android:enabled="true"
+            android:fontFamily="@font/open_sans"
+            android:gravity="center"
+            android:src="@drawable/minus_states"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/ConePossessedButton"
+            android:layout_width="@dimen/square_toggle_length"
+            android:layout_height="@dimen/square_toggle_length"
+            android:background="@color/grape"
+            android:enabled="false"
+            android:gravity="center"
+            android:src="@drawable/plus_states"
+            tools:ignore="ContentDescription" />
+
+        <!-- android:button="@drawable/button_rounded_corners" -->
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/IDCubesScoredTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/open_sans"
+        android:text="@string/Top"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/smaller_label_text_size"
+        app:layout_constraintStart_toStartOf="@+id/IDCubesScored"
+        app:layout_constraintTop_toBottomOf="@+id/IDCubesScored" />
+
+    <RadioGroup
+        android:id="@+id/CubesPossessedToggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:divider="?android:attr/dividerHorizontal"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        app:layout_constraintBottom_toBottomOf="@+id/IDCubesPossessed"
+        app:layout_constraintStart_toEndOf="@+id/IDCubesPossessed"
+        app:layout_constraintTop_toTopOf="@+id/IDCubesPossessed"
+        app:layout_constraintVertical_bias="0.487">
+
+        <ImageButton
+            android:id="@+id/ConeNotPossessedButton"
+            android:layout_width="@dimen/square_toggle_length"
+            android:layout_height="@dimen/square_toggle_length"
+            android:background="@color/grape"
+            android:enabled="true"
+            android:fontFamily="@font/open_sans"
+            android:gravity="center"
+            android:src="@drawable/minus_states"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/ConePossessedButton"
+            android:layout_width="@dimen/square_toggle_length"
+            android:layout_height="@dimen/square_toggle_length"
+            android:background="@color/grape"
+            android:enabled="false"
+            android:gravity="center"
+            android:src="@drawable/plus_states"
+            tools:ignore="ContentDescription" />
+
+        <!-- android:button="@drawable/button_rounded_corners" -->
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/IDCubes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/futura_medium_condensed_bt"
+        android:text="@string/Cubes"
+        android:textColor="@color/periwinkle"
+        android:textSize="@dimen/subheader_text_size"
+        app:layout_constraintStart_toEndOf="@+id/ConePossessedCounter"
+        app:layout_constraintTop_toBottomOf="@+id/IDScoringDirections" />
+
     <ImageView
         android:id="@+id/rightEdgeBar"
         android:layout_width="5dp"
@@ -44,7 +154,7 @@
         android:id="@+id/TeleopWarning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="684dp"
+        android:layout_marginTop="736dp"
         android:background="@drawable/teleop_warning"
         android:fontFamily="@font/open_sans"
         android:gravity="center"
@@ -53,7 +163,7 @@
         android:textSize="@dimen/label_text_size"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.566"
+        app:layout_constraintHorizontal_bias="0.554"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -213,506 +323,588 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.925" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/conesSection"
+    <TextView
+        android:id="@+id/IDCones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:paddingVertical="10dp"
-        android:paddingLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/futura_medium_condensed_bt"
+        android:text="@string/Cones"
+        android:textColor="@color/banana"
+        android:textSize="@dimen/subheader_text_size"
         app:layout_constraintStart_toStartOf="@+id/IDScoring"
-        app:layout_constraintTop_toBottomOf="@+id/IDScoringDirections">
+        app:layout_constraintTop_toBottomOf="@+id/IDScoringDirections" />
 
-        <TextView
-            android:id="@+id/IDConesScoredHybrid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:fontFamily="@font/open_sans"
-            android:text="@string/Hybrid"
-            android:textColor="@drawable/text_states"
-            android:textSize="@dimen/button_text_size"
-            app:layout_constraintStart_toStartOf="@+id/IDCones"
-            app:layout_constraintTop_toBottomOf="@+id/IDConesScoredMid" />
+    <TextView
+        android:id="@+id/IDConesPossessed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/open_sans"
+        android:text="@string/PickedUp"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/smaller_label_text_size"
+        app:layout_constraintStart_toStartOf="@+id/IDCones"
+        app:layout_constraintTop_toBottomOf="@+id/IDCones" />
 
-        <TextView
-            android:id="@+id/ConeScoredHybridCounter"
-            android:layout_width="38dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="10dp"
-            android:gravity="center"
-            android:paddingStart="5dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="5dp"
-            android:paddingBottom="4dp"
-            android:text="@string/DefaultValue"
-            android:textColor="@drawable/text_states"
-            android:textSize="@dimen/instruction_text_size"
-            app:layout_constraintBottom_toBottomOf="@+id/ConesScoredHybrid"
-            app:layout_constraintStart_toEndOf="@+id/ConesScoredHybrid"
-            app:layout_constraintTop_toTopOf="@+id/ConesScoredHybrid" />
+    <TextView
+        android:id="@+id/IDCubesPossessed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/open_sans"
+        android:text="@string/PickedUp"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/smaller_label_text_size"
+        app:layout_constraintStart_toStartOf="@+id/IDCubes"
+        app:layout_constraintTop_toBottomOf="@+id/IDCubes" />
 
-        <RadioGroup
-            android:id="@+id/ConesScoredHybrid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="37dp"
-            android:divider="?android:attr/dividerHorizontal"
-            android:orientation="horizontal"
-            android:showDividers="middle"
-            app:layout_constraintBottom_toBottomOf="@+id/IDConesScoredHybrid"
-            app:layout_constraintStart_toEndOf="@+id/IDConesScoredHybrid"
-            app:layout_constraintTop_toTopOf="@+id/IDConesScoredHybrid">
+    <TextView
+        android:id="@+id/ConePossessedCounter"
+        android:layout_width="38dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:paddingStart="5dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="4dp"
+        android:text="@string/DefaultValue"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/instruction_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/ConesPossessedToggle"
+        app:layout_constraintStart_toEndOf="@+id/ConesPossessedToggle"
+        app:layout_constraintTop_toTopOf="@+id/ConesPossessedToggle" />
 
-            <ImageButton
-                android:id="@+id/ConeNotScoredHybridButton"
-                android:layout_width="@dimen/square_toggle_length"
-                android:layout_height="wrap_content"
-                android:background="@drawable/toggle_left_states"
-                android:enabled="true"
-                android:fontFamily="@font/open_sans"
-                android:gravity="center"
-                android:src="@drawable/minus_states"
-                tools:ignore="ContentDescription" />
-
-            <ImageButton
-                android:id="@+id/ConeScoredHybridButton"
-                android:layout_width="@dimen/square_toggle_length"
-                android:layout_height="@dimen/square_toggle_length"
-                android:layout_weight="1"
-                android:background="@drawable/toggle_right_states"
-                android:enabled="false"
-                android:gravity="center"
-                android:src="@drawable/plus_states"
-                tools:ignore="ContentDescription" />
-        </RadioGroup>
-
-        <View
-            android:id="@+id/conesDividerTop"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray"
-            app:layout_constraintBottom_toTopOf="@+id/ScoredUpperToggle"
-            app:layout_constraintTop_toBottomOf="@+id/ConesPossessedToggle"
-            tools:layout_editor_absoluteX="-275dp" />
-
-        <TextView
-            android:id="@+id/IDCones"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/futura_medium_condensed_bt"
-            android:text="@string/Cones"
-            android:textColor="@drawable/subead_states"
-            android:textSize="@dimen/subheader_text_size"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <RadioGroup
-            android:id="@+id/MissedUpperToggle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="64dp"
-            android:divider="?android:attr/dividerHorizontal"
-            android:orientation="horizontal"
-            android:showDividers="middle"
-            app:layout_constraintBottom_toBottomOf="@+id/IDConesScoredMid"
-            app:layout_constraintStart_toEndOf="@+id/IDConesScoredMid"
-            app:layout_constraintTop_toTopOf="@+id/IDConesScoredMid">
-
-            <ImageButton
-                android:id="@+id/ConeNotScoredHybridButton"
-                android:layout_width="@dimen/square_toggle_length"
-                android:layout_height="wrap_content"
-                android:background="@drawable/toggle_left_states"
-                android:enabled="true"
-                android:fontFamily="@font/open_sans"
-                android:gravity="center"
-                android:src="@drawable/minus_states"
-                tools:ignore="ContentDescription" />
-
-            <ImageButton
-                android:id="@+id/ConeScoredHybridButton"
-                android:layout_width="@dimen/square_toggle_length"
-                android:layout_height="@dimen/square_toggle_length"
-                android:layout_weight="1"
-                android:background="@drawable/toggle_right_states"
-                android:enabled="false"
-                android:gravity="center"
-                android:src="@drawable/plus_states"
-                tools:ignore="ContentDescription" />
-        </RadioGroup>
-
-        <RadioGroup
-            android:id="@+id/ScoredUpperToggle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="64dp"
-            android:divider="?android:attr/dividerHorizontal"
-            android:orientation="horizontal"
-            android:showDividers="middle"
-            app:layout_constraintBottom_toBottomOf="@+id/IDConesScoredTop"
-            app:layout_constraintStart_toEndOf="@+id/IDConesScoredTop"
-            app:layout_constraintTop_toTopOf="@+id/IDConesScoredTop">
-
-            <ImageButton
-                android:id="@+id/ConeNotScoredTopButton"
-                android:layout_width="@dimen/square_toggle_length"
-                android:layout_height="wrap_content"
-                android:background="@drawable/toggle_left_states"
-                android:enabled="true"
-                android:fontFamily="@font/open_sans"
-                android:gravity="center"
-                android:src="@drawable/minus_states"
-                tools:ignore="ContentDescription" />
-
-            <ImageButton
-                android:id="@+id/ConeScoredTopButton"
-                android:layout_width="@dimen/square_toggle_length"
-                android:layout_height="@dimen/square_toggle_length"
-                android:layout_weight="1"
-                android:background="@drawable/toggle_right_states"
-                android:enabled="false"
-                android:gravity="center"
-                android:src="@drawable/plus_states"
-                tools:ignore="ContentDescription" />
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/ConeScoredMidCounter"
-            android:layout_width="38dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="10dp"
-            android:gravity="center"
-            android:paddingStart="5dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="5dp"
-            android:paddingBottom="4dp"
-            android:text="@string/DefaultValue"
-            android:textColor="@drawable/text_states"
-            android:textSize="@dimen/instruction_text_size"
-            app:layout_constraintBottom_toBottomOf="@+id/MissedUpperToggle"
-            app:layout_constraintStart_toEndOf="@+id/MissedUpperToggle"
-            app:layout_constraintTop_toTopOf="@+id/MissedUpperToggle" />
-
-        <TextView
-            android:id="@+id/IDConesScoredTop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:fontFamily="@font/open_sans"
-            android:text="@string/Top"
-            android:textColor="@drawable/text_states"
-            android:textSize="@dimen/button_text_size"
-            app:layout_constraintStart_toStartOf="@+id/IDCones"
-            app:layout_constraintTop_toBottomOf="@+id/IDConesPickedUp" />
-
-        <TextView
-            android:id="@+id/IDConesScoredMid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:fontFamily="@font/open_sans"
-            android:text="@string/Mid"
-            android:textColor="@drawable/text_states"
-            android:textSize="@dimen/button_text_size"
-            app:layout_constraintStart_toStartOf="@+id/IDCones"
-            app:layout_constraintTop_toBottomOf="@+id/IDConesScoredTop" />
-
-        <TextView
-            android:id="@+id/ConeScoredTopCounter"
-            android:layout_width="38dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="10dp"
-            android:gravity="center"
-            android:paddingStart="5dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="5dp"
-            android:paddingBottom="4dp"
-            android:text="@string/DefaultValue"
-            android:textColor="@drawable/text_states"
-            android:textSize="@dimen/instruction_text_size"
-            app:layout_constraintBottom_toBottomOf="@+id/ScoredUpperToggle"
-            app:layout_constraintStart_toEndOf="@+id/ScoredUpperToggle"
-            app:layout_constraintTop_toTopOf="@+id/ScoredUpperToggle" />
-
-        <TextView
-            android:id="@+id/IDConesPickedUp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
-            android:fontFamily="@font/open_sans"
-            android:text="@string/Possessed"
-            android:textColor="@drawable/text_states"
-            android:textSize="@dimen/button_text_size"
-            app:layout_constraintStart_toStartOf="@+id/IDCones"
-            app:layout_constraintTop_toBottomOf="@+id/IDCones" />
-
-        <RadioGroup
-            android:id="@+id/ConesPossessedToggle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:divider="?android:attr/dividerHorizontal"
-            android:orientation="horizontal"
-            android:showDividers="middle"
-            app:layout_constraintBottom_toBottomOf="@+id/IDConesPickedUp"
-            app:layout_constraintStart_toEndOf="@+id/IDConesPickedUp"
-            app:layout_constraintTop_toTopOf="@+id/IDConesPickedUp">
-
-            <ImageButton
-                android:id="@+id/ConeNotMissedButton"
-                android:layout_width="@dimen/square_toggle_length"
-                android:layout_height="@dimen/square_toggle_length"
-                android:background="@drawable/toggle_left_states"
-                android:enabled="true"
-                android:fontFamily="@font/open_sans"
-                android:gravity="center"
-                android:src="@drawable/minus_states"
-                tools:ignore="ContentDescription" />
-
-            <ImageButton
-                android:id="@+id/ConeMissedButton"
-                android:layout_width="@dimen/square_toggle_length"
-                android:layout_height="@dimen/square_toggle_length"
-                android:background="@drawable/toggle_right_states"
-                android:enabled="false"
-                android:gravity="center"
-                android:src="@drawable/plus_states"
-                tools:ignore="ContentDescription" />
-
-            <!-- android:button="@drawable/button_rounded_corners" -->
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/IDConeMissed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:fontFamily="@font/open_sans"
-            android:text="@string/Missed"
-            android:textColor="@drawable/text_states"
-            android:textSize="@dimen/button_text_size"
-            app:layout_constraintStart_toStartOf="@+id/IDCones"
-            app:layout_constraintTop_toBottomOf="@+id/IDConesScoredHybrid" />
-
-        <TextView
-            android:id="@+id/ConeMissedCounter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:gravity="center"
-            android:paddingStart="5dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="5dp"
-            android:paddingBottom="4dp"
-            android:text="@string/DefaultValue"
-            android:textColor="@drawable/text_states"
-            android:textSize="@dimen/instruction_text_size"
-            app:layout_constraintBottom_toBottomOf="@+id/ConesMissedToggle"
-            app:layout_constraintStart_toEndOf="@+id/ConesMissedToggle"
-            app:layout_constraintTop_toTopOf="@+id/ConesMissedToggle"
-            app:layout_constraintVertical_bias="0.515" />
-
-        <RadioGroup
-            android:id="@+id/ConesMissedToggle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="37dp"
-            android:divider="?android:attr/dividerHorizontal"
-            android:orientation="horizontal"
-            android:showDividers="middle"
-            app:layout_constraintBottom_toBottomOf="@+id/IDConeMissed"
-            app:layout_constraintStart_toEndOf="@+id/IDConeMissed"
-            app:layout_constraintTop_toTopOf="@+id/IDConeMissed"
-            app:layout_constraintVertical_bias="0.421">
-
-            <ImageButton
-                android:id="@+id/ConeNotMissedButton"
-                android:layout_width="@dimen/square_toggle_length"
-                android:layout_height="@dimen/square_toggle_length"
-                android:background="@drawable/toggle_left_states"
-                android:enabled="true"
-                android:fontFamily="@font/open_sans"
-                android:gravity="center"
-                android:src="@drawable/minus_states"
-                tools:ignore="ContentDescription" />
-
-            <ImageButton
-                android:id="@+id/ConeMissedButton"
-                android:layout_width="@dimen/square_toggle_length"
-                android:layout_height="@dimen/square_toggle_length"
-                android:background="@drawable/toggle_right_states"
-                android:enabled="false"
-                android:gravity="center"
-                android:src="@drawable/plus_states"
-                tools:ignore="ContentDescription" />
-
-            <!-- android:button="@drawable/button_rounded_corners" -->
-        </RadioGroup>
-
-        <View
-            android:id="@+id/conesDividerBottom"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginVertical="20dp"
-            android:layout_marginTop="23dp"
-            android:background="@android:color/darker_gray"
-            app:layout_constraintBottom_toTopOf="@+id/ConesMissedToggle"
-            app:layout_constraintTop_toBottomOf="@+id/ConesScoredHybrid"
-            tools:layout_editor_absoluteX="-263dp" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cubeSection"
+    <RadioGroup
+        android:id="@+id/ConesPossessedToggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="25dp"
-        app:layout_constraintStart_toEndOf="@+id/conesSection"
-        app:layout_constraintTop_toBottomOf="@+id/IDScoringDirections">
+        android:divider="?android:attr/dividerHorizontal"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        app:layout_constraintBottom_toBottomOf="@+id/IDConesPossessed"
+        app:layout_constraintStart_toEndOf="@+id/IDConesPossessed"
+        app:layout_constraintTop_toTopOf="@+id/IDConesPossessed">
 
-        <TextView
-            android:id="@+id/IDCubes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/futura_medium_condensed_bt"
-            android:text="@string/Cubes"
-            android:textColor="@drawable/subead_states"
-            android:textSize="@dimen/subheader_text_size"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/cubesPossessedCounter"
-            android:layout_width="38dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="10dp"
-            android:gravity="center"
-            android:paddingStart="5dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="5dp"
-            android:paddingBottom="4dp"
-            android:text="@string/DefaultValue"
-            android:textColor="@drawable/text_states"
-            android:textSize="@dimen/instruction_text_size"
-            app:layout_constraintBottom_toBottomOf="@+id/ScoredLowerToggle"
-            app:layout_constraintStart_toEndOf="@+id/ScoredLowerToggle"
-            app:layout_constraintTop_toTopOf="@+id/ScoredLowerToggle" />
-
-        <RadioGroup
-            android:id="@+id/MissedLowerToggle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="13dp"
-            android:divider="?android:attr/dividerHorizontal"
-            android:orientation="horizontal"
-            android:showDividers="middle"
-            app:layout_constraintBottom_toBottomOf="@+id/IDCubesMissed"
-            app:layout_constraintStart_toEndOf="@+id/IDCubesMissed"
-            app:layout_constraintTop_toTopOf="@+id/IDCubesMissed">
-
-            <ImageButton
-                android:id="@+id/cubeNotMissedButton"
-                android:layout_width="@dimen/square_toggle_length"
-                android:layout_height="wrap_content"
-                android:background="@drawable/toggle_left_states"
-                android:enabled="true"
-                android:fontFamily="@font/open_sans"
-                android:gravity="center"
-                android:src="@drawable/minus_states"
-                tools:ignore="ContentDescription" />
-
-            <ImageButton
-                android:id="@+id/cubeMissedButton"
-                android:layout_width="@dimen/square_toggle_length"
-                android:layout_height="@dimen/square_toggle_length"
-                android:layout_weight="1"
-                android:background="@drawable/toggle_right_states"
-                android:enabled="false"
-                android:gravity="center"
-                android:src="@drawable/plus_states"
-                tools:ignore="ContentDescription" />
-
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/cubesMissedCounter"
-            android:layout_width="35dp"
-            android:layout_height="29dp"
-            android:layout_marginStart="10dp"
-            android:gravity="center"
-            android:paddingStart="5dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="5dp"
-            android:paddingBottom="4dp"
-            android:text="@string/DefaultValue"
-            android:textColor="@drawable/text_states"
-            android:textSize="@dimen/instruction_text_size"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/MissedLowerToggle"
-            app:layout_constraintTop_toTopOf="@+id/MissedLowerToggle" />
-
-        <RadioGroup
-            android:id="@+id/ScoredLowerToggle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:divider="?android:attr/dividerHorizontal"
-            android:orientation="horizontal"
-            android:showDividers="middle"
-            app:layout_constraintBottom_toBottomOf="@+id/IDCubesPossessed"
-            app:layout_constraintStart_toEndOf="@+id/IDCubesPossessed"
-            app:layout_constraintTop_toTopOf="@+id/IDCubesPossessed">
-
-            <ImageButton
-                android:id="@+id/cubeNotPossessedButton"
-                android:layout_width="@dimen/square_toggle_length"
-                android:layout_height="wrap_content"
-                android:background="@drawable/toggle_left_states"
-                android:enabled="true"
-                android:fontFamily="@font/open_sans"
-                android:gravity="center"
-                android:src="@drawable/minus_states"
-                tools:ignore="ContentDescription" />
-
-            <ImageButton
-                android:id="@+id/cubePossessedButton"
-                android:layout_width="@dimen/square_toggle_length"
-                android:layout_height="@dimen/square_toggle_length"
-                android:layout_weight="1"
-                android:background="@drawable/toggle_right_states"
-                android:enabled="false"
-                android:gravity="center"
-                android:src="@drawable/plus_states"
-                tools:ignore="ContentDescription" />
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/IDCubesPossessed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+        <ImageButton
+            android:id="@+id/ConeNotPossessedButton"
+            android:layout_width="@dimen/square_toggle_length"
+            android:layout_height="@dimen/square_toggle_length"
+            android:background="@color/banana"
+            android:enabled="true"
             android:fontFamily="@font/open_sans"
-            android:text="@string/Possessed"
-            android:textColor="@drawable/text_states"
-            android:textSize="@dimen/button_text_size"
-            app:layout_constraintStart_toStartOf="@+id/IDCubes"
-            app:layout_constraintTop_toBottomOf="@+id/IDCubes" />
+            android:gravity="center"
+            android:src="@drawable/minus_disabled"
+            tools:ignore="ContentDescription" />
 
-        <TextView
-            android:id="@+id/IDCubesMissed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+        <ImageButton
+            android:id="@+id/ConePossessedButton"
+            android:layout_width="@dimen/square_toggle_length"
+            android:layout_height="@dimen/square_toggle_length"
+            android:background="@color/banana"
+            android:enabled="false"
+            android:gravity="center"
+            android:src="@drawable/plus_disabled"
+            tools:ignore="ContentDescription" />
+
+        <!-- android:button="@drawable/button_rounded_corners" -->
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/IDConesScored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/futura_medium_condensed_bt"
+        android:text="@string/Scored"
+        android:textColor="@drawable/subead_states"
+        android:textSize="@dimen/subheader_text_size"
+        app:layout_constraintStart_toStartOf="@+id/IDConesPossessed"
+        app:layout_constraintTop_toBottomOf="@+id/IDConesPossessed" />
+
+    <TextView
+        android:id="@+id/IDCubesScored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/futura_medium_condensed_bt"
+        android:text="@string/Scored"
+        android:textColor="@drawable/subead_states"
+        android:textSize="@dimen/subheader_text_size"
+        app:layout_constraintStart_toStartOf="@+id/IDCubes"
+        app:layout_constraintTop_toBottomOf="@+id/IDCubesPossessed" />
+
+    <TextView
+        android:id="@+id/IDConesScoredTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/open_sans"
+        android:text="@string/Top"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/label_text_size"
+        app:layout_constraintStart_toStartOf="@+id/IDCones"
+        app:layout_constraintTop_toBottomOf="@+id/IDConesScored" />
+
+    <RadioGroup
+        android:id="@+id/ConesScoredTopToggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="?android:attr/dividerHorizontal"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        app:layout_constraintBottom_toBottomOf="@+id/IDConesScoredTop"
+        app:layout_constraintStart_toStartOf="@+id/ConesPossessedToggle"
+        app:layout_constraintTop_toTopOf="@+id/IDConesScoredTop">
+
+        <ImageButton
+            android:id="@+id/ConeNotScoredTopButton"
+            android:layout_width="@dimen/square_toggle_length"
+            android:layout_height="@dimen/square_toggle_length"
+            android:background="@color/banana"
+            android:enabled="true"
             android:fontFamily="@font/open_sans"
-            android:text="@string/Missed"
-            android:textColor="@drawable/text_states"
-            android:textSize="@dimen/button_text_size"
-            app:layout_constraintStart_toStartOf="@+id/IDCubes"
-            app:layout_constraintTop_toBottomOf="@+id/IDCubesPossessed" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:gravity="center"
+            android:src="@drawable/minus_disabled"
+            tools:ignore="ContentDescription" />
 
+        <ImageButton
+            android:id="@+id/ConeScoredTopButton"
+            android:layout_width="@dimen/square_toggle_length"
+            android:layout_height="@dimen/square_toggle_length"
+            android:layout_weight="1"
+            android:background="@color/banana"
+            android:enabled="false"
+            android:gravity="center"
+            android:src="@drawable/plus_disabled"
+            tools:ignore="ContentDescription" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/ConeScoredTopCounter"
+        android:layout_width="38dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:paddingStart="5dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="4dp"
+        android:text="@string/DefaultValue"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/instruction_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/ConesScoredTopToggle"
+        app:layout_constraintStart_toEndOf="@+id/ConesScoredTopToggle"
+        app:layout_constraintTop_toTopOf="@+id/ConesScoredTopToggle" />
+
+    <TextView
+        android:id="@+id/IDConesScoredMid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/open_sans"
+        android:text="@string/Mid"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/label_text_size"
+        app:layout_constraintStart_toStartOf="@+id/IDConesScoredTop"
+        app:layout_constraintTop_toBottomOf="@+id/IDConesScoredTop" />
+
+    <RadioGroup
+        android:id="@+id/MissedUpperToggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="?android:attr/dividerHorizontal"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        app:layout_constraintBottom_toBottomOf="@+id/IDConesScoredMid"
+        app:layout_constraintStart_toStartOf="@+id/ConesScoredTopToggle"
+        app:layout_constraintTop_toTopOf="@+id/IDConesScoredMid">
+
+        <ImageButton
+            android:id="@+id/ConeNotScoredHybridButton"
+            android:layout_width="@dimen/square_toggle_length"
+            android:layout_height="@dimen/square_toggle_length"
+            android:background="@color/banana"
+            android:enabled="true"
+            android:fontFamily="@font/open_sans"
+            android:gravity="center"
+            android:src="@drawable/minus_disabled"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/ConeScoredHybridButton"
+            android:layout_width="@dimen/square_toggle_length"
+            android:layout_height="@dimen/square_toggle_length"
+            android:layout_weight="1"
+            android:background="@color/banana"
+            android:enabled="false"
+            android:gravity="center"
+            android:src="@drawable/plus_disabled"
+            tools:ignore="ContentDescription" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/ConeScoredMidCounter"
+        android:layout_width="38dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:paddingStart="5dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="4dp"
+        android:text="@string/DefaultValue"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/instruction_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/MissedUpperToggle"
+        app:layout_constraintStart_toEndOf="@+id/MissedUpperToggle"
+        app:layout_constraintTop_toTopOf="@+id/MissedUpperToggle" />
+
+    <TextView
+        android:id="@+id/IDConesScoredHybrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/open_sans"
+        android:text="@string/Hybrid"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/label_text_size"
+        app:layout_constraintStart_toStartOf="@+id/IDConesScoredMid"
+        app:layout_constraintTop_toBottomOf="@+id/IDConesScoredMid" />
+
+    <TextView
+        android:id="@+id/IDCubesScoredHybrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="268dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/open_sans"
+        android:text="@string/Hybrid"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/label_text_size"
+        app:layout_constraintStart_toStartOf="@+id/IDConesScoredMid"
+        app:layout_constraintTop_toBottomOf="@+id/IDConesScoredMid" />
+
+    <RadioGroup
+        android:id="@+id/ConesScoredHybrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="?android:attr/dividerHorizontal"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        app:layout_constraintBottom_toBottomOf="@+id/IDConesScoredHybrid"
+        app:layout_constraintStart_toStartOf="@+id/MissedUpperToggle"
+        app:layout_constraintTop_toTopOf="@+id/IDConesScoredHybrid">
+
+        <ImageButton
+            android:id="@+id/ConeNotScoredHybridButton"
+            android:layout_width="@dimen/square_toggle_length"
+            android:layout_height="@dimen/square_toggle_length"
+            android:background="@color/banana"
+            android:enabled="true"
+            android:fontFamily="@font/open_sans"
+            android:gravity="center"
+            android:src="@drawable/minus_disabled"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/ConeScoredHybridButton"
+            android:layout_width="@dimen/square_toggle_length"
+            android:layout_height="@dimen/square_toggle_length"
+            android:layout_weight="1"
+            android:background="@color/banana"
+            android:enabled="false"
+            android:gravity="center"
+            android:src="@drawable/plus_disabled"
+            tools:ignore="ContentDescription" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/IDConeMissed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/open_sans"
+        android:text="@string/Missed"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/label_text_size"
+        app:layout_constraintStart_toStartOf="@+id/IDConesScoredHybrid"
+        app:layout_constraintTop_toBottomOf="@+id/IDConesScoredHybrid" />
+
+    <TextView
+        android:id="@+id/IDCubesMissed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/open_sans"
+        android:text="@string/Missed"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/label_text_size"
+        app:layout_constraintStart_toStartOf="@+id/IDCubesScoredHybrid"
+        app:layout_constraintTop_toBottomOf="@+id/IDCubesScoredHybrid" />
+
+    <RadioGroup
+        android:id="@+id/ConesMissedToggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="?android:attr/dividerHorizontal"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        app:layout_constraintBottom_toBottomOf="@+id/IDConeMissed"
+        app:layout_constraintStart_toStartOf="@+id/ConesScoredHybrid"
+        app:layout_constraintTop_toTopOf="@+id/IDConeMissed">
+
+        <ImageButton
+            android:id="@+id/ConeNotPossessedButton"
+            android:layout_width="@dimen/square_toggle_length"
+            android:layout_height="@dimen/square_toggle_length"
+            android:background="@color/banana"
+            android:enabled="true"
+            android:fontFamily="@font/open_sans"
+            android:gravity="center"
+            android:src="@drawable/minus_disabled"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/ConePossessedButton"
+            android:layout_width="@dimen/square_toggle_length"
+            android:layout_height="@dimen/square_toggle_length"
+            android:background="@color/banana"
+            android:enabled="false"
+            android:gravity="center"
+            android:src="@drawable/plus_disabled"
+            tools:ignore="ContentDescription" />
+
+        <!-- android:button="@drawable/button_rounded_corners" -->
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/ConeMissedCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:paddingStart="5dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="4dp"
+        android:text="@string/DefaultValue"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/instruction_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/ConesMissedToggle"
+        app:layout_constraintStart_toEndOf="@+id/ConesMissedToggle"
+        app:layout_constraintTop_toTopOf="@+id/ConesMissedToggle" />
+
+    <TextView
+        android:id="@+id/coneMissedCounter3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:paddingStart="5dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="4dp"
+        android:text="@string/DefaultValue"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/instruction_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/CubeScoredHybridToggle"
+        app:layout_constraintStart_toEndOf="@+id/CubeScoredHybridToggle"
+        app:layout_constraintTop_toTopOf="@+id/CubeScoredHybridToggle"
+        app:layout_constraintVertical_bias="0.393" />
+
+    <TextView
+        android:id="@+id/ConeScoredHybridCounter"
+        android:layout_width="38dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:paddingStart="5dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="4dp"
+        android:text="@string/DefaultValue"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/instruction_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/ConesScoredHybrid"
+        app:layout_constraintStart_toEndOf="@+id/ConesScoredHybrid"
+        app:layout_constraintTop_toTopOf="@+id/ConesScoredHybrid" />
+
+    <TextView
+        android:id="@+id/CubePossessedCounter"
+        android:layout_width="38dp"
+        android:layout_height="35dp"
+        android:gravity="center"
+        android:paddingStart="5dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="4dp"
+        android:text="@string/DefaultValue"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/instruction_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/CubesPossessedToggle"
+        app:layout_constraintTop_toTopOf="@+id/CubesPossessedToggle"
+        tools:layout_editor_absoluteX="521dp" />
+
+    <TextView
+        android:id="@+id/cubeScoredTopCounter"
+        android:layout_width="38dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:paddingStart="5dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="4dp"
+        android:text="@string/DefaultValue"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/instruction_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/CubesScoredTopToggle"
+        app:layout_constraintStart_toEndOf="@+id/CubesScoredTopToggle"
+        app:layout_constraintTop_toTopOf="@+id/CubesScoredTopToggle" />
+
+    <TextView
+        android:id="@+id/cubeScoredMidCounter"
+        android:layout_width="38dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:paddingStart="5dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="4dp"
+        android:text="@string/DefaultValue"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/instruction_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/CubeScoredMidToggled"
+        app:layout_constraintStart_toEndOf="@+id/CubeScoredMidToggled"
+        app:layout_constraintTop_toTopOf="@+id/CubeScoredMidToggled" />
+
+    <TextView
+        android:id="@+id/cubesScoredHybridCounter"
+        android:layout_width="38dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:paddingStart="5dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="4dp"
+        android:text="@string/DefaultValue"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/instruction_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/CubesMissedToggle"
+        app:layout_constraintStart_toEndOf="@+id/CubesMissedToggle"
+        app:layout_constraintTop_toTopOf="@+id/CubesMissedToggle" />
+
+    <RadioGroup
+        android:id="@+id/CubeScoredMidToggled"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="?android:attr/dividerHorizontal"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        app:layout_constraintBottom_toBottomOf="@+id/IDCubesScoredMid"
+        app:layout_constraintStart_toStartOf="@+id/CubesScoredTopToggle"
+        app:layout_constraintTop_toTopOf="@+id/IDCubesScoredMid"
+        app:layout_constraintVertical_bias="0.487">
+
+        <ImageButton
+            android:id="@+id/ConeNotPossessedButton"
+            android:layout_width="@dimen/square_toggle_length"
+            android:layout_height="@dimen/square_toggle_length"
+            android:background="@color/grape"
+            android:enabled="true"
+            android:fontFamily="@font/open_sans"
+            android:gravity="center"
+            android:src="@drawable/minus_states"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/ConePossessedButton"
+            android:layout_width="@dimen/square_toggle_length"
+            android:layout_height="@dimen/square_toggle_length"
+            android:background="@color/grape"
+            android:enabled="false"
+            android:gravity="center"
+            android:src="@drawable/plus_states"
+            tools:ignore="ContentDescription" />
+
+        <!-- android:button="@drawable/button_rounded_corners" -->
+    </RadioGroup>
+
+
+    <RadioGroup
+        android:id="@+id/CubeScoredHybridToggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="?android:attr/dividerHorizontal"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        app:layout_constraintBottom_toBottomOf="@+id/IDCubesMissed"
+        app:layout_constraintStart_toStartOf="@+id/CubeScoredMidToggled"
+        app:layout_constraintTop_toTopOf="@+id/IDCubesMissed"
+        app:layout_constraintVertical_bias="0.487">
+
+        <ImageButton
+            android:id="@+id/ConeNotPossessedButton"
+            android:layout_width="@dimen/square_toggle_length"
+            android:layout_height="@dimen/square_toggle_length"
+            android:background="@color/grape"
+            android:enabled="true"
+            android:fontFamily="@font/open_sans"
+            android:gravity="center"
+            android:src="@drawable/minus_states"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/ConePossessedButton"
+            android:layout_width="@dimen/square_toggle_length"
+            android:layout_height="@dimen/square_toggle_length"
+            android:background="@color/grape"
+            android:enabled="false"
+            android:gravity="center"
+            android:src="@drawable/plus_states"
+            tools:ignore="ContentDescription" />
+
+        <!-- android:button="@drawable/button_rounded_corners" -->
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/CubesMissedToggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="?android:attr/dividerHorizontal"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        app:layout_constraintBottom_toBottomOf="@+id/IDCubesScoredHybrid"
+        app:layout_constraintStart_toStartOf="@+id/CubeScoredMidToggled"
+        app:layout_constraintTop_toTopOf="@+id/IDCubesScoredHybrid"
+        app:layout_constraintVertical_bias="0.487">
+
+        <ImageButton
+            android:id="@+id/CubeNotScoredHybridButton"
+            android:layout_width="@dimen/square_toggle_length"
+            android:layout_height="@dimen/square_toggle_length"
+            android:background="@color/grape"
+            android:enabled="true"
+            android:fontFamily="@font/open_sans"
+            android:gravity="center"
+            android:src="@drawable/minus_states"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/CubeScoredHybridButton"
+            android:layout_width="@dimen/square_toggle_length"
+            android:layout_height="@dimen/square_toggle_length"
+            android:background="@color/grape"
+            android:enabled="false"
+            android:gravity="center"
+            android:src="@drawable/plus_states"
+            tools:ignore="ContentDescription" />
+
+        <!-- android:button="@drawable/button_rounded_corners" -->
+    </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>

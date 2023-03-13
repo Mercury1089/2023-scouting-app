@@ -82,9 +82,9 @@ public class Teleop extends Fragment {
         //linking variables to XML elements on the screen
         possessionID = getView().findViewById(R.id.IDPossession);
         possessionDescription = getView().findViewById(R.id.IDPossessionDirections);
-        pickedUpID = getView().findViewById(R.id.IDConesPickedUp);
-        pickedUpIncrementButton = getView().findViewById(R.id.ConeMissedButton);
-        pickedUpDecrementButton = getView().findViewById(R.id.ConeNotMissedButton);
+        pickedUpID = getView().findViewById(R.id.IDConesPossessed);
+        pickedUpIncrementButton = getView().findViewById(R.id.ConePossessedButton);
+        pickedUpDecrementButton = getView().findViewById(R.id.ConeNotPossessedButton);
         pickedUpCounter = getView().findViewById(R.id.ConeMissedCounter);
 
         scoringID = getView().findViewById(R.id.IDScoring);
