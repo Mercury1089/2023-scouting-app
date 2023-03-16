@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
@@ -77,28 +76,9 @@ public class Climb extends Fragment {
         climbRungDirections = getView().findViewById(R.id.IDClimbRungDirections);
 
         generateQRButton = getView().findViewById(R.id.GenerateQRButton);
-        rungTabs = getView().findViewById(R.id.rungTabs);
+        rungTabs = getView().findViewById(R.id.autonChargeStationTabs);
         //Removes tab indicator because climb switch starts out as null
         rungTabs.setSelectedTabIndicator(null);
-
-        //set listeners for buttons
-        climbedSwitch.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                climbHashMap.put("Climbed", isChecked ? "1" : "0");
-                //Default option for rung is LOW
-                if (isChecked) {
-                    //Sets tab indicator to built-in default
-                    rungTabs.setSelectedTabIndicator(R.drawable.mtrl_tabs_default_indicator);
-                    rungTabs.getTabAt(0).select();
-                    climbHashMap.put("Rung", "L");
-                } else {
-                    //Removes tab indicator
-                    rungTabs.setSelectedTabIndicator(null);
-
-                }
-                updateXMLObjects();
-            }
-        });
 
         rungTabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.487">
 
         <ImageButton
-            android:id="@+id/ConeNotPossessedButton"
+            android:id="@+id/CubeNotScoredTopButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
             android:background="@color/grape"
@@ -46,7 +46,7 @@
             tools:ignore="ContentDescription" />
 
         <ImageButton
-            android:id="@+id/ConePossessedButton"
+            android:id="@+id/CubeScoredTopButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
             android:background="@color/grape"
@@ -224,24 +224,25 @@
         android:id="@+id/IDMisc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/futura_medium_condensed_bt"
         android:text="@string/MiscTitle"
         android:textColor="@drawable/header_states"
         android:textSize="@dimen/header_text_size"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="558dp" />
+        app:layout_constraintTop_toBottomOf="@+id/ConesMissedToggle"
+        tools:layout_editor_absoluteX="45dp" />
 
     <TextView
         android:id="@+id/IDMiscDirections"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/open_sans_italic"
         android:text="@string/MiscDirections"
         android:textColor="@drawable/text_states"
         android:textSize="@dimen/instruction_text_size"
-        app:layout_constraintTop_toBottomOf="@+id/IDMisc"
-        tools:layout_editor_absoluteX="60dp" />
+        app:layout_constraintStart_toStartOf="@+id/IDMisc"
+        app:layout_constraintTop_toBottomOf="@+id/IDMisc" />
 
     <TextView
         android:id="@+id/IDTaxi"
@@ -812,7 +813,7 @@
         app:layout_constraintVertical_bias="0.487">
 
         <ImageButton
-            android:id="@+id/ConeNotPossessedButton"
+            android:id="@+id/CubeNotScoredMidButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
             android:background="@color/grape"
@@ -823,7 +824,7 @@
             tools:ignore="ContentDescription" />
 
         <ImageButton
-            android:id="@+id/ConePossessedButton"
+            android:id="@+id/CubeScoredMidButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
             android:background="@color/grape"
@@ -849,7 +850,7 @@
         app:layout_constraintVertical_bias="0.487">
 
         <ImageButton
-            android:id="@+id/ConeNotPossessedButton"
+            android:id="@+id/cubeNotMissedButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
             android:background="@color/grape"
@@ -860,7 +861,7 @@
             tools:ignore="ContentDescription" />
 
         <ImageButton
-            android:id="@+id/ConePossessedButton"
+            android:id="@+id/cubeMissedButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
             android:background="@color/grape"
@@ -907,4 +908,41 @@
 
         <!-- android:button="@drawable/button_rounded_corners" -->
     </RadioGroup>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/autonChargeStationTabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:background="@color/bg_general"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IDMiscDirections"
+        app:tabBackground="@drawable/button_states"
+        app:tabIndicatorColor="@color/rust"
+        app:tabTextColor="@color/ice">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/lowRungTab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/toggle_left_states"
+            android:text="@string/LowRung"
+            app:tabBackground="@drawable/toggle_left_states" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/midRungTab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/MidRung" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/highRungTab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/toggle_right_states"
+            android:text="@string/HighRung"
+            app:tabBackground="@drawable/toggle_right_states" />
+
+    </com.google.android.material.tabs.TabLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

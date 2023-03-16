@@ -11,7 +11,7 @@
     tools:ignore="ExtraText">
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/rungTabs"
+        android:id="@+id/autonChargeStationTabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -22,7 +22,6 @@
         app:tabBackground="@drawable/button_states"
         app:tabIndicatorColor="@color/rust"
         app:tabTextColor="@color/ice">
-
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/lowRungTab"
@@ -52,6 +51,7 @@
             android:layout_height="wrap_content"
             android:text="@string/TraversalRung" />
     </com.google.android.material.tabs.TabLayout>
+
 
     <TextView
         android:id="@+id/IDEndgame"

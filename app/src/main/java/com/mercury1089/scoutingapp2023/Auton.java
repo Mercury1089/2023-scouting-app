@@ -8,6 +8,7 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
+import android.media.Image;
 import android.os.Vibrator;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -24,6 +25,8 @@ import android.widget.Switch;
 import android.widget.TextView;
 import java.util.LinkedHashMap;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.material.tabs.TabLayout;
 import com.mercury1089.scoutingapp2023.utils.GenUtils;
 
 public class Auton extends Fragment {
@@ -37,24 +40,47 @@ public class Auton extends Fragment {
     private ImageButton conePossessedDecrementButton;
     private TextView conePossessedCounter;
 
+    private TextView conesScoredTopID;
     private ImageButton coneScoredTopIncrementButton;
     private ImageButton coneScoredTopDecrementButton;
     private TextView coneScoredTopCounter;
+    private TextView conesScoredMidID;
     private ImageButton coneScoredMidIncrementButton;
     private ImageButton coneScoredMidDecrementButton;
     private TextView coneScoredMidCounter;
+    private TextView coneScoredHybridID;
     private ImageButton conesScoredHybridIncrementButton;
     private ImageButton coneScoredHybridDecrementButton;
-
+    private TextView coneMissedID;
     private ImageButton coneMissedIncrementButton;
     private ImageButton coneMissedDecrementButton;
     private TextView coneMissedCounter;
 
     //Cube Section
+    private TextView cubesPossessedID;
+    private ImageButton cubePossessedIncrementButton;
+    private ImageButton cubePossessedDecrementButton;
+    private TextView cubePossessedCounter;
+    private TextView cubeScoredTopID;
+    private ImageButton cubeScoredTopIncrementButton;
+    private ImageButton cubeScoredTopDecrementButton;
+    private TextView cubeScoredTopCounter;
+    private TextView cubeScoredMidID;
+    private ImageButton cubeScoredMidIncrementButton;
+    private ImageButton cubeScoredMidDecrementButton;
+    private TextView cubeScoredMidCounter;
+    private TextView cubeScoredHybridID;
+    private ImageButton cubesScoredHybridIncrementButton;
+    private ImageButton cubesScoredHybridDecrementButton;
+    private TextView cubesScoredHybridCounter;
+    private TextView cubesMissedID;
     private ImageButton cubeMissedIncrementButton;
     private ImageButton cubeMissedDecrementButton;
     private TextView cubesMissedCounter;
     private Button nextButton;
+
+    //Auton Charge Station
+    private TabLayout autonCSTabs;
 
     //Switches
     private Switch taxiSwitch;
@@ -65,29 +91,12 @@ public class Auton extends Fragment {
     private TextView secondsRemaining;
     private TextView teleopWarning;
 
-    private TextView possessionID;
-    private TextView possessionDescription;
-
-
-    private ImageButton cubePossessedIncrementButton;
-    private ImageButton cubePossessedDecrementButton;
-    private TextView cubesPossessedCounter;
-
-    private TextView IDConesScoredTop;
-    private TextView IDConesScoredMid;
-
-
-
-
     private TextView scoringID;
     private TextView scoringDescription;
     private TextView IDCones;
     private TextView IDCubes;
     private TextView IDCubesPossessed;
     private TextView IDCubesMissed;
-
-
-
 
     private TextView miscID;
     private TextView miscDescription;
@@ -156,6 +165,7 @@ public class Auton extends Fragment {
         IDCubesMissed = getView().findViewById(R.id.IDCubesMissed);
 
         coneScoredTopIncrementButton = getView().findViewById(R.id.ConeScoredTopButton);
+        coneScoredTopDecrementButton = getView().findViewById(R.id.ConeNotScoredTopButton);
         cubePossessedIncrementButton = getView().findViewById(R.id.cubePossessedButton);
         coneScoredTopDecrementButton = getView().findViewById(R.id.ConeNotScoredTopButton);
         cubePossessedDecrementButton = getView().findViewById(R.id.cubeNotPossessedButton);
@@ -337,6 +347,25 @@ public class Auton extends Fragment {
         }
 
         //set listeners for buttons and fill the hashmap with data
+
+        //set listeners for buttons
+        climbedSwitch.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                climbHashMap.put("Climbed", isChecked ? "1" : "0");
+                //Default option for rung is LOW
+                if (isChecked) {
+                    //Sets tab indicator to built-in default
+                    rungTabs.setSelectedTabIndicator(R.drawable.mtrl_tabs_default_indicator);
+                    rungTabs.getTabAt(0).select();
+                    climbHashMap.put("Rung", "L");
+                } else {
+                    //Removes tab indicator
+                    rungTabs.setSelectedTabIndicator(null);
+
+                }
+                updateXMLObjects();
+            }
+        });
 
         coneScoredTopIncrementButton.setOnClickListener(new View.OnClickListener() {
             @Override
