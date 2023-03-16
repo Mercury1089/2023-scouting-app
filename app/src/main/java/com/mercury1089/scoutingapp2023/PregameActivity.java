@@ -23,7 +23,6 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,7 +33,6 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.mercury1089.scoutingapp2023.utils.QRStringBuilder;
-import com.mercury1089.scoutingapp2023.utils.TeamRoster;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;
@@ -109,13 +107,8 @@ public class PregameActivity extends AppCompatActivity {
         setupHashMap = HashMapManager.getSetupHashMap();
         password = settingsHashMap.get("DefaultPassword");
 
-        //Setting scouter name hint to random name from roster
-        try {
-            TeamRoster tr = new TeamRoster(getApplicationContext());
-            scouterNameInput.setHint(tr.getRandomName());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        //RAHIL
+        scouterNameInput.setHint("Rahil Shiraz");
 
         //setting group buttons to default state
         updateXMLObjects(true);

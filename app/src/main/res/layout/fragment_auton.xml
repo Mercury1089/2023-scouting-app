@@ -910,7 +910,7 @@
     </RadioGroup>
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/autonChargeStationTabs"
+        android:id="@+id/AutonChargeStationTabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"

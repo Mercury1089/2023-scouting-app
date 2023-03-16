@@ -76,7 +76,7 @@ public class Climb extends Fragment {
         climbRungDirections = getView().findViewById(R.id.IDClimbRungDirections);
 
         generateQRButton = getView().findViewById(R.id.GenerateQRButton);
-        rungTabs = getView().findViewById(R.id.autonChargeStationTabs);
+        rungTabs = getView().findViewById(R.id.AutonChargeStationTabs);
         //Removes tab indicator because climb switch starts out as null
         rungTabs.setSelectedTabIndicator(null);
 

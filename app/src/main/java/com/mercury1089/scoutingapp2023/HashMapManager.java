@@ -326,13 +326,15 @@ public class HashMapManager{
                 //include all the items that will be in the autonHashMap
                 autonHashMap.put("HashMapName", "Auton");
                 autonHashMap.put("CubePossessed", "0");
-                autonHashMap.put("ConePossessed", "0");
                 autonHashMap.put("CubeScoredHybrid", "0");
                 autonHashMap.put("CubeScoredMid", "0");
                 autonHashMap.put("CubeScoredHigh", "0");
+
                 autonHashMap.put("CubeMissedHybrid", "0");
                 autonHashMap.put("CubeMissedMid", "0");
                 autonHashMap.put("CubeMissedHigh", "0");
+
+                autonHashMap.put("ConePossessed", "0");
                 autonHashMap.put("ConeScoredHybrid", "0");
                 autonHashMap.put("ConeScoredMid", "0");
                 autonHashMap.put("ConeScoredHigh", "0");

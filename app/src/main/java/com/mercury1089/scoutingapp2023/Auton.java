@@ -220,6 +220,7 @@ public class Auton extends Fragment {
         fellOverID = getView().findViewById(R.id.IDFellOver);
 
         nextButton = getView().findViewById(R.id.NextTeleopButton);
+        autonCSTabs = getView().findViewById(R.id.AutonChargeStationTabs);
 
         topEdgeBar = getView().findViewById(R.id.topEdgeBar);
         bottomEdgeBar = getView().findViewById(R.id.bottomEdgeBar);
@@ -382,9 +383,9 @@ public class Auton extends Fragment {
         //set listeners for buttons and fill the hashmap with data
 
         //set listeners for buttons
-        climbedSwitch.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+        autonCSTabs.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                climbHashMap.put("Climbed", isChecked ? "1" : "0");
+                autonHashMap.put("Climbed", isChecked ? "1" : "0");
                 //Default option for rung is LOW
                 if (isChecked) {
                     //Sets tab indicator to built-in default
