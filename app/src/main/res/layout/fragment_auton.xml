@@ -84,7 +84,7 @@
         app:layout_constraintVertical_bias="0.487">
 
         <ImageButton
-            android:id="@+id/ConeNotPossessedButton"
+            android:id="@+id/CubeNotPossessedButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
             android:background="@color/grape"
@@ -95,7 +95,7 @@
             tools:ignore="ContentDescription" />
 
         <ImageButton
-            android:id="@+id/ConePossessedButton"
+            android:id="@+id/CubePossessedButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
             android:background="@color/grape"
@@ -512,7 +512,7 @@
         app:layout_constraintTop_toBottomOf="@+id/IDConesScoredTop" />
 
     <RadioGroup
-        android:id="@+id/MissedUpperToggle"
+        android:id="@+id/ConesScoredMidToggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:divider="?android:attr/dividerHorizontal"
@@ -523,7 +523,7 @@
         app:layout_constraintTop_toTopOf="@+id/IDConesScoredMid">
 
         <ImageButton
-            android:id="@+id/ConeNotScoredHybridButton"
+            android:id="@+id/ConeNotScoredMidButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
             android:background="@color/banana"
@@ -534,7 +534,7 @@
             tools:ignore="ContentDescription" />
 
         <ImageButton
-            android:id="@+id/ConeScoredHybridButton"
+            android:id="@+id/ConeScoredMidButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
             android:layout_weight="1"
@@ -558,9 +558,9 @@
         android:text="@string/DefaultValue"
         android:textColor="@drawable/text_states"
         android:textSize="@dimen/instruction_text_size"
-        app:layout_constraintBottom_toBottomOf="@+id/MissedUpperToggle"
-        app:layout_constraintStart_toEndOf="@+id/MissedUpperToggle"
-        app:layout_constraintTop_toTopOf="@+id/MissedUpperToggle" />
+        app:layout_constraintBottom_toBottomOf="@+id/ConesScoredMidToggle"
+        app:layout_constraintStart_toEndOf="@+id/ConesScoredMidToggle"
+        app:layout_constraintTop_toTopOf="@+id/ConesScoredMidToggle" />
 
     <TextView
         android:id="@+id/IDConesScoredHybrid"
@@ -595,7 +595,7 @@
         android:orientation="horizontal"
         android:showDividers="middle"
         app:layout_constraintBottom_toBottomOf="@+id/IDConesScoredHybrid"
-        app:layout_constraintStart_toStartOf="@+id/MissedUpperToggle"
+        app:layout_constraintStart_toStartOf="@+id/ConesScoredMidToggle"
         app:layout_constraintTop_toTopOf="@+id/IDConesScoredHybrid">
 
         <ImageButton
@@ -657,7 +657,7 @@
         app:layout_constraintTop_toTopOf="@+id/IDConeMissed">
 
         <ImageButton
-            android:id="@+id/ConeNotPossessedButton"
+            android:id="@+id/ConeNotMissedButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
             android:background="@color/banana"
@@ -668,7 +668,7 @@
             tools:ignore="ContentDescription" />
 
         <ImageButton
-            android:id="@+id/ConePossessedButton"
+            android:id="@+id/ConeMissedButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
             android:background="@color/banana"
@@ -710,9 +710,9 @@
         android:text="@string/DefaultValue"
         android:textColor="@drawable/text_states"
         android:textSize="@dimen/instruction_text_size"
-        app:layout_constraintBottom_toBottomOf="@+id/CubeScoredHybridToggle"
-        app:layout_constraintStart_toEndOf="@+id/CubeScoredHybridToggle"
-        app:layout_constraintTop_toTopOf="@+id/CubeScoredHybridToggle"
+        app:layout_constraintBottom_toBottomOf="@+id/CubesMissedToggle"
+        app:layout_constraintStart_toEndOf="@+id/CubesMissedToggle"
+        app:layout_constraintTop_toTopOf="@+id/CubesMissedToggle"
         app:layout_constraintVertical_bias="0.393" />
 
     <TextView
@@ -795,9 +795,9 @@
         android:text="@string/DefaultValue"
         android:textColor="@drawable/text_states"
         android:textSize="@dimen/instruction_text_size"
-        app:layout_constraintBottom_toBottomOf="@+id/CubesMissedToggle"
-        app:layout_constraintStart_toEndOf="@+id/CubesMissedToggle"
-        app:layout_constraintTop_toTopOf="@+id/CubesMissedToggle" />
+        app:layout_constraintBottom_toBottomOf="@+id/CubesScoredHybridToggle"
+        app:layout_constraintStart_toEndOf="@+id/CubesScoredHybridToggle"
+        app:layout_constraintTop_toTopOf="@+id/CubesScoredHybridToggle" />
 
     <RadioGroup
         android:id="@+id/CubeScoredMidToggled"
@@ -837,7 +837,7 @@
 
 
     <RadioGroup
-        android:id="@+id/CubeScoredHybridToggle"
+        android:id="@+id/CubesMissedToggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:divider="?android:attr/dividerHorizontal"
@@ -873,7 +873,7 @@
     </RadioGroup>
 
     <RadioGroup
-        android:id="@+id/CubesMissedToggle"
+        android:id="@+id/CubesScoredHybridToggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:divider="?android:attr/dividerHorizontal"
