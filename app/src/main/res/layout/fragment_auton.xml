@@ -699,7 +699,7 @@
         app:layout_constraintTop_toTopOf="@+id/ConesMissedToggle" />
 
     <TextView
-        android:id="@+id/coneMissedCounter3"
+        android:id="@+id/CubesMissedCounter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -750,7 +750,7 @@
         tools:layout_editor_absoluteX="521dp" />
 
     <TextView
-        android:id="@+id/cubeScoredTopCounter"
+        android:id="@+id/CubeScoredTopCounter"
         android:layout_width="38dp"
         android:layout_height="35dp"
         android:layout_marginStart="10dp"
@@ -784,7 +784,7 @@
         app:layout_constraintTop_toTopOf="@+id/CubeScoredMidToggled" />
 
     <TextView
-        android:id="@+id/cubesScoredHybridCounter"
+        android:id="@+id/CubesScoredHybridCounter"
         android:layout_width="38dp"
         android:layout_height="35dp"
         android:layout_marginStart="10dp"
@@ -850,7 +850,7 @@
         app:layout_constraintVertical_bias="0.487">
 
         <ImageButton
-            android:id="@+id/cubeNotMissedButton"
+            android:id="@+id/CubeNotMissedButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
             android:background="@color/grape"
@@ -861,7 +861,7 @@
             tools:ignore="ContentDescription" />
 
         <ImageButton
-            android:id="@+id/cubeMissedButton"
+            android:id="@+id/CubeMissedButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
             android:background="@color/grape"

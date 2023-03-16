@@ -8,7 +8,6 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
-import android.media.Image;
 import android.os.Vibrator;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -44,13 +43,17 @@ public class Auton extends Fragment {
     private ImageButton coneScoredTopIncrementButton;
     private ImageButton coneScoredTopDecrementButton;
     private TextView coneScoredTopCounter;
+
     private TextView conesScoredMidID;
     private ImageButton coneScoredMidIncrementButton;
     private ImageButton coneScoredMidDecrementButton;
     private TextView coneScoredMidCounter;
+
     private TextView coneScoredHybridID;
     private ImageButton conesScoredHybridIncrementButton;
     private ImageButton coneScoredHybridDecrementButton;
+    private TextView coneScoredHybridCounter;
+
     private TextView coneMissedID;
     private ImageButton coneMissedIncrementButton;
     private ImageButton coneMissedDecrementButton;
@@ -61,23 +64,26 @@ public class Auton extends Fragment {
     private ImageButton cubePossessedIncrementButton;
     private ImageButton cubePossessedDecrementButton;
     private TextView cubePossessedCounter;
+
     private TextView cubeScoredTopID;
     private ImageButton cubeScoredTopIncrementButton;
     private ImageButton cubeScoredTopDecrementButton;
     private TextView cubeScoredTopCounter;
+
     private TextView cubeScoredMidID;
     private ImageButton cubeScoredMidIncrementButton;
     private ImageButton cubeScoredMidDecrementButton;
     private TextView cubeScoredMidCounter;
+
     private TextView cubeScoredHybridID;
     private ImageButton cubesScoredHybridIncrementButton;
     private ImageButton cubesScoredHybridDecrementButton;
     private TextView cubesScoredHybridCounter;
+
     private TextView cubesMissedID;
     private ImageButton cubeMissedIncrementButton;
     private ImageButton cubeMissedDecrementButton;
     private TextView cubesMissedCounter;
-    private Button nextButton;
 
     //Auton Charge Station
     private TabLayout autonCSTabs;
@@ -109,6 +115,9 @@ public class Auton extends Fragment {
     private ImageView bottomEdgeBar;
     private ImageView leftEdgeBar;
     private ImageView rightEdgeBar;
+
+    private Button nextButton;
+
 
     //other variables
     private static CountDownTimer timer;
@@ -148,36 +157,60 @@ public class Auton extends Fragment {
         secondsRemaining = getView().findViewById(R.id.AutonSeconds);
         teleopWarning = getView().findViewById(R.id.TeleopWarning);
 
-        possessionID = getView().findViewById(R.id.IDPossession);
-        possessionDescription = getView().findViewById(R.id.IDPossessionDirections);
-        conesPossessedID = getView().findViewById(R.id.IDConesPossessed);
-        coneMissedIncrementButton = getView().findViewById(R.id.ConePossessedButton);
-        coneMissedDecrementButton = getView().findViewById(R.id.ConeNotPossessedButton);
-        coneMissedCounter = getView().findViewById(R.id.ConeMissedCounter);
-
         scoringID = getView().findViewById(R.id.IDScoring);
         scoringDescription = getView().findViewById(R.id.IDScoringDirections);
         IDCones = getView().findViewById(R.id.IDCones);
         IDCubes = getView().findViewById(R.id.IDCubes);
-        IDConesScoredTop = getView().findViewById(R.id.IDConesScoredTop);
-        IDCubesPossessed = getView().findViewById(R.id.IDCubesPossessed);
-        IDConesScoredMid = getView().findViewById(R.id.IDConesScoredMid);
-        IDCubesMissed = getView().findViewById(R.id.IDCubesMissed);
 
+        conesPossessedID = getView().findViewById(R.id.IDConesPossessed);
+        conePossessedIncrementButton = getView().findViewById(R.id.ConePossessedButton);
+        conePossessedDecrementButton = getView().findViewById(R.id.ConeNotPossessedButton);
+        conePossessedCounter = getView().findViewById(R.id.ConePossessedCounter);
+
+        conesScoredTopID = getView().findViewById(R.id.IDConesScoredTop);
         coneScoredTopIncrementButton = getView().findViewById(R.id.ConeScoredTopButton);
         coneScoredTopDecrementButton = getView().findViewById(R.id.ConeNotScoredTopButton);
-        cubePossessedIncrementButton = getView().findViewById(R.id.cubePossessedButton);
-        coneScoredTopDecrementButton = getView().findViewById(R.id.ConeNotScoredTopButton);
-        cubePossessedDecrementButton = getView().findViewById(R.id.cubeNotPossessedButton);
         coneScoredTopCounter = getView().findViewById(R.id.ConeScoredTopCounter);
-        cubesPossessedCounter = getView().findViewById(R.id.cubesPossessedCounter);
 
-        conesScoredHybridIncrementButton = getView().findViewById(R.id.ConeScoredHybridButton);
-        cubeMissedIncrementButton = getView().findViewById(R.id.cubeMissedButton);
-        coneScoredHybridDecrementButton = getView().findViewById(R.id.ConeNotScoredHybridButton);
-        cubeMissedDecrementButton = getView().findViewById(R.id.cubeNotMissedButton);
+        conesScoredMidID = getView().findViewById(R.id.IDConesScoredMid);
+        coneScoredMidIncrementButton = getView().findViewById(R.id.ConeScoredMidButton);
+        coneScoredMidDecrementButton = getView().findViewById(R.id.ConeNotScoredMidButton);
         coneScoredMidCounter = getView().findViewById(R.id.ConeScoredMidCounter);
-        cubesMissedCounter = getView().findViewById(R.id.cubesMissedCounter);
+
+        coneScoredHybridID = getView().findViewById(R.id.IDConesScoredHybrid);
+        conesScoredHybridIncrementButton = getView().findViewById(R.id.ConeScoredHybridButton);
+        coneScoredHybridDecrementButton = getView().findViewById(R.id.ConeNotScoredHybridButton);
+        coneScoredHybridCounter = getView().findViewById(R.id.ConeScoredHybridCounter);
+
+        coneMissedID = getView().findViewById(R.id.IDConeMissed);
+        coneMissedIncrementButton = getView().findViewById(R.id.ConePossessedButton);
+        coneMissedDecrementButton = getView().findViewById(R.id.ConeNotPossessedButton);
+        coneMissedCounter = getView().findViewById(R.id.ConeMissedCounter);
+
+        cubesPossessedID = getView().findViewById(R.id.IDCubesPossessed);
+        cubePossessedIncrementButton = getView().findViewById(R.id.CubePossessedButton);
+        cubePossessedDecrementButton = getView().findViewById(R.id.CubeNotPossessedButton);
+        cubePossessedCounter = getView().findViewById(R.id.CubePossessedCounter);
+
+        cubeScoredTopID = getView().findViewById(R.id.IDCubesScoredTop);
+        cubeScoredTopIncrementButton = getView().findViewById(R.id.CubeScoredTopButton);
+        cubeScoredTopDecrementButton = getView().findViewById(R.id.CubeNotScoredTopButton);
+        cubeScoredTopCounter = getView().findViewById(R.id.CubeScoredTopCounter);
+
+        cubeScoredMidID  = getView().findViewById(R.id.IDCubesScoredMid);
+        cubeScoredMidIncrementButton = getView().findViewById(R.id.CubeScoredMidButton);
+        cubeScoredMidDecrementButton = getView().findViewById(R.id.CubeNotScoredMidButton);
+        cubeScoredMidCounter = getView().findViewById(R.id.CubeScoredMidButton);
+
+        cubeScoredHybridID = getView().findViewById(R.id.IDCubesScoredHybrid);
+        cubesScoredHybridIncrementButton = getView().findViewById(R.id.CubeScoredHybridButton);
+        cubesScoredHybridDecrementButton = getView().findViewById(R.id.CubeNotScoredHybridButton);
+        cubesScoredHybridCounter = getView().findViewById(R.id.CubesScoredHybridCounter);
+
+        cubesMissedID = getView().findViewById(R.id.IDCubesMissed);
+        cubeMissedIncrementButton = getView().findViewById(R.id.CubeMissedButton);
+        cubeMissedDecrementButton = getView().findViewById(R.id.CubeNotMissedButton);
+        cubesMissedCounter = getView().findViewById(R.id.CubesMissedCounter);
 
         miscID = getView().findViewById(R.id.IDMisc);
         miscDescription = getView().findViewById(R.id.IDMiscDirections);

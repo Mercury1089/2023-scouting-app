@@ -95,8 +95,8 @@ public class Teleop extends Fragment {
         notScoredLowerButton = getView().findViewById(R.id.cubeNotPossessedButton);
         missedUpperButton = getView().findViewById(R.id.ConeScoredHybridButton);
         notMissedUpperButton = getView().findViewById(R.id.ConeNotScoredHybridButton);
-        missedLowerButton = getView().findViewById(R.id.cubeMissedButton);
-        notMissedLowerButton = getView().findViewById(R.id.cubeNotMissedButton);
+        missedLowerButton = getView().findViewById(R.id.CubeMissedButton);
+        notMissedLowerButton = getView().findViewById(R.id.CubeNotMissedButton);
         scoredUpperCounter = getView().findViewById(R.id.ConeScoredTopCounter);
         scoredLowerCounter = getView().findViewById(R.id.cubesPossessedCounter);
         missedUpperCounter = getView().findViewById(R.id.ConeScoredMidCounter);
