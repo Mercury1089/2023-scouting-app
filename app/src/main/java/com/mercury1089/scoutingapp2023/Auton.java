@@ -382,23 +382,21 @@ public class Auton extends Fragment {
 
         //set listeners for buttons and fill the hashmap with data
 
-        //set listeners for buttons
-        autonCSTabs.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                autonHashMap.put("Climbed", isChecked ? "1" : "0");
-                //Default option for rung is LOW
-                if (isChecked) {
-                    //Sets tab indicator to built-in default
-                    rungTabs.setSelectedTabIndicator(R.drawable.mtrl_tabs_default_indicator);
-                    rungTabs.getTabAt(0).select();
-                    climbHashMap.put("Rung", "L");
-                } else {
-                    //Removes tab indicator
-                    rungTabs.setSelectedTabIndicator(null);
+        autonCSTabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+             @Override
+             public void onTabSelected(TabLayout.Tab tab) {
 
-                }
-                updateXMLObjects();
-            }
+             }
+
+             @Override
+             public void onTabUnselected(TabLayout.Tab tab) {
+
+             }
+
+             @Override
+             public void onTabReselected(TabLayout.Tab tab) {
+
+             }
         });
 
         coneScoredTopIncrementButton.setOnClickListener(new View.OnClickListener() {
@@ -531,10 +529,7 @@ public class Auton extends Fragment {
     }
 
     private void possessionButtonsEnabledState(boolean enable){
-        possessionID.setEnabled(enable);
-        possessionDescription.setEnabled(enable);
 
-        .setEnabled(enable);
         coneMissedIncrementButton.setEnabled(enable);
         coneMissedDecrementButton.setEnabled(enable);
         coneMissedCounter.setEnabled(enable);
@@ -545,9 +540,7 @@ public class Auton extends Fragment {
         scoringDescription.setEnabled(enable);
         IDCones.setEnabled(enable);
         IDCubes.setEnabled(enable);
-        IDConesScoredTop.setEnabled(enable);
         IDCubesPossessed.setEnabled(enable);
-        IDConesScoredMid.setEnabled(enable);
         IDCubesMissed.setEnabled(enable);
 
         coneScoredTopIncrementButton.setEnabled(enable);
@@ -555,7 +548,6 @@ public class Auton extends Fragment {
         coneScoredTopDecrementButton.setEnabled(enable);
         cubePossessedDecrementButton.setEnabled(enable);
         coneScoredTopCounter.setEnabled(enable);
-        cubesPossessedCounter.setEnabled(enable);
         coneScoredMidCounter.setEnabled(enable);
         cubesMissedCounter.setEnabled(enable);
 

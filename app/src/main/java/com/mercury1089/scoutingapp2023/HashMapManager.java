@@ -342,6 +342,7 @@ public class HashMapManager{
                 autonHashMap.put("ConeMissedMid", "0");
                 autonHashMap.put("ConeMissedHigh", "0");
                 autonHashMap.put("Mobility", "0");
+                autonHashMap.put("AutonPos", "N"); //See
                 break;
             case TELEOP:
                 //include all the items that will be in the teleopHashMap
@@ -369,7 +370,7 @@ public class HashMapManager{
                 //include all the items that will be in the climbHashMap
                 climbHashMap.put("HashMapName", "Climb");
                 //Will be D, N, P, or N (Dock, Engage, Park, or None)
-                climbHashMap.put("Pos", "0");
+                climbHashMap.put("Pos", "N");
                 break;
         }
     }
