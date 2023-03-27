@@ -200,7 +200,7 @@ public class Auton extends Fragment {
         cubeScoredMidID  = getView().findViewById(R.id.IDCubesScoredMid);
         cubeScoredMidIncrementButton = getView().findViewById(R.id.CubeScoredMidButton);
         cubeScoredMidDecrementButton = getView().findViewById(R.id.CubeNotScoredMidButton);
-        cubeScoredMidCounter = getView().findViewById(R.id.CubeScoredMidButton);
+        cubeScoredMidCounter = getView().findViewById(R.id.cubeScoredMidCounter);
 
         cubeScoredHybridID = getView().findViewById(R.id.IDCubesScoredHybrid);
         cubesScoredHybridIncrementButton = getView().findViewById(R.id.CubeScoredHybridButton);
@@ -404,7 +404,7 @@ public class Auton extends Fragment {
             public void onClick(View view) {
                 int currentCount = Integer.parseInt((String) coneScoredTopCounter.getText());
                 currentCount++;
-                autonHashMap.put("ScoredUpper", String.valueOf(currentCount));
+                autonHashMap.put("ConeScoredHigh", String.valueOf(currentCount));
                 updateXMLObjects();
             }
         });
@@ -415,7 +415,49 @@ public class Auton extends Fragment {
                 int currentCount = Integer.parseInt((String) coneScoredTopCounter.getText());
                 if (currentCount > 0)
                     currentCount--;
-                autonHashMap.put("ScoredUpper", String.valueOf(currentCount));
+                autonHashMap.put("ConeScoredHigh", String.valueOf(currentCount));
+                updateXMLObjects();
+            }
+        });
+
+        coneScoredMidIncrementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int currentCount = Integer.parseInt((String) coneScoredMidCounter.getText());
+                currentCount++;
+                autonHashMap.put("ConeScoredMid", String.valueOf(currentCount));
+                updateXMLObjects();
+            }
+        });
+
+        coneScoredMidDecrementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int currentCount = Integer.parseInt((String) coneScoredMidCounter.getText());
+                if (currentCount > 0)
+                    currentCount--;
+                autonHashMap.put("ConeScoredMid", String.valueOf(currentCount));
+                updateXMLObjects();
+            }
+        });
+
+        conesScoredHybridIncrementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int currentCount = Integer.parseInt((String) coneScoredHybridCounter.getText());
+                currentCount++;
+                autonHashMap.put("ConeScoredHybrid", String.valueOf(currentCount));
+                updateXMLObjects();
+            }
+        });
+
+        coneScoredHybridDecrementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int currentCount = Integer.parseInt((String) coneScoredHybridCounter.getText());
+                if (currentCount > 0)
+                    currentCount--;
+                autonHashMap.put("ConeScoredHybrid", String.valueOf(currentCount));
                 updateXMLObjects();
             }
         });
@@ -425,7 +467,7 @@ public class Auton extends Fragment {
             public void onClick(View view){
                 int currentCount = Integer.parseInt((String) coneMissedCounter.getText());
                 currentCount++;
-                autonHashMap.put("NumberPickedUp", String.valueOf(currentCount));
+                autonHashMap.put("ConeMissed", String.valueOf(currentCount));
                 updateXMLObjects();
             }
         });
@@ -436,7 +478,7 @@ public class Auton extends Fragment {
                 if(currentCount > 0)
                     coneMissedDecrementButton.setEnabled(false);
                 currentCount--;
-                autonHashMap.put("NumberPickedUp", String.valueOf(currentCount));
+                autonHashMap.put("ConeMissed", String.valueOf(currentCount));
                 updateXMLObjects();
             }
         });
@@ -447,9 +489,9 @@ public class Auton extends Fragment {
         cubePossessedIncrementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int currentCount = Integer.parseInt((String) cubesPossessedCounter.getText());
+                int currentCount = Integer.parseInt((String) cubePossessedCounter.getText());
                 currentCount++;
-                autonHashMap.put("ScoredLower", String.valueOf(currentCount));
+                autonHashMap.put("CubePossessed", String.valueOf(currentCount));
                 updateXMLObjects();
             }
         });
@@ -457,40 +499,62 @@ public class Auton extends Fragment {
         cubePossessedDecrementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int currentCount = Integer.parseInt((String) cubesPossessedCounter.getText());
+                int currentCount = Integer.parseInt((String) cubePossessedCounter.getText());
                 if (currentCount > 0)
                     currentCount--;
-                autonHashMap.put("ScoredLower", String.valueOf(currentCount));
-                updateXMLObjects();
-            }
-        });
-        conesScoredHybridIncrementButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int currentCount = Integer.parseInt((String) coneScoredMidCounter.getText());
-                currentCount++;
-                autonHashMap.put("MissedUpper", String.valueOf(currentCount));
+                autonHashMap.put("CubePossessed", String.valueOf(currentCount));
                 updateXMLObjects();
             }
         });
 
-        coneScoredHybridDecrementButton.setOnClickListener(new View.OnClickListener() {
+        cubesScoredHybridIncrementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int currentCount = Integer.parseInt((String) coneScoredMidCounter.getText());
-                if (currentCount > 0)
-                    currentCount--;
-                autonHashMap.put("MissedUpper", String.valueOf(currentCount));
+                int currentCount = Integer.parseInt((String) cubesScoredHybridCounter.getText());
+                currentCount++;
+                autonHashMap.put("CubeScoredHybrid", String.valueOf(currentCount));
                 updateXMLObjects();
             }
         });
 
-        cubeMissedIncrementButton.setOnClickListener(new View.OnClickListener() {
+        cubesScoredHybridDecrementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int currentCount = Integer.parseInt((String) cubesMissedCounter.getText());
+                int currentCount = Integer.parseInt((String) cubesScoredHybridCounter.getText());
+                if (currentCount > 0)
+                    currentCount--;
+                autonHashMap.put("CubeScoredHybrid", String.valueOf(currentCount));
+                updateXMLObjects();
+            }
+        });
+
+        cubeScoredMidIncrementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int currentCount = Integer.parseInt((String) cubeScoredMidCounter.getText());
                 currentCount++;
-                autonHashMap.put("MissedLower", String.valueOf(currentCount));
+                autonHashMap.put("CubeScoredMid", String.valueOf(currentCount));
+                updateXMLObjects();
+            }
+        });
+
+        cubeScoredMidDecrementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int currentCount = Integer.parseInt((String) cubeScoredMidCounter.getText());
+                if (currentCount > 0)
+                    currentCount--;
+                autonHashMap.put("CubeScoredHybrid", String.valueOf(currentCount));
+                updateXMLObjects();
+            }
+        });
+
+        cubeScoredTopIncrementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int currentCount = Integer.parseInt((String) cubeScoredTopCounter.getText());
+                currentCount++;
+                autonHashMap.put("CubeMissed", String.valueOf(currentCount));
                 updateXMLObjects();
             }
         });
@@ -501,14 +565,14 @@ public class Auton extends Fragment {
                 int currentCount = Integer.parseInt((String) cubesMissedCounter.getText());
                 if (currentCount > 0)
                     currentCount--;
-                autonHashMap.put("MissedLower", String.valueOf(currentCount));
+                autonHashMap.put("CubeMissed", String.valueOf(currentCount));
                 updateXMLObjects();
             }
         });
 
         taxiSwitch.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                autonHashMap.put("Taxi", isChecked ? "1" : "0");
+                autonHashMap.put("Mobility", isChecked ? "1" : "0");
                 updateXMLObjects();
             }
         });
@@ -579,7 +643,7 @@ public class Auton extends Fragment {
 
     private void updateXMLObjects(){
         coneScoredTopCounter.setText(GenUtils.padLeftZeros(autonHashMap.get("ScoredUpper"), 2));
-        cubesPossessedCounter.setText(GenUtils.padLeftZeros(autonHashMap.get("ScoredLower"), 2));
+        cubePossessedCounter.setText(GenUtils.padLeftZeros(autonHashMap.get("ScoredLower"), 2));
         coneScoredMidCounter.setText(GenUtils.padLeftZeros(autonHashMap.get("MissedUpper"), 2));
         cubesMissedCounter.setText(GenUtils.padLeftZeros(autonHashMap.get("MissedLower"), 2));
         coneMissedCounter.setText(GenUtils.padLeftZeros(autonHashMap.get("NumberPickedUp"), 2));
@@ -604,7 +668,7 @@ public class Auton extends Fragment {
                 coneScoredTopDecrementButton.setEnabled(false);
             else
                 coneScoredTopDecrementButton.setEnabled(true);
-            if (Integer.parseInt((String) cubesPossessedCounter.getText()) <= 0)
+            if (Integer.parseInt((String) cubePossessedCounter.getText()) <= 0)
                 cubePossessedDecrementButton.setEnabled(false);
             else
                 cubePossessedDecrementButton.setEnabled(true);

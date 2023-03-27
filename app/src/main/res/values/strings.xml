@@ -94,7 +94,7 @@
         <string name="Hybrid">HYBRID</string>
         <string name="Missed">MISSED</string>
         <string name="MiscDirections">Tap on the toggle to mark if the action occurs.</string>
-        <string name="Taxi">Taxi (Robot has left the tarmac)</string>
+        <string name="Mobility">Mobility Bonus (Robot left the community at any time)</string>
         <string name="FellOver">Fell Over</string>
         <string name="TeleopWarning">Teleop is starting soon...</string>
         <string name="TeleopError">Switch to teleop as soon as possible!</string>

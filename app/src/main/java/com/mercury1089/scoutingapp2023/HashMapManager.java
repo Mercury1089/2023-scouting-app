@@ -326,21 +326,18 @@ public class HashMapManager{
                 //include all the items that will be in the autonHashMap
                 autonHashMap.put("HashMapName", "Auton");
                 autonHashMap.put("CubePossessed", "0");
+
                 autonHashMap.put("CubeScoredHybrid", "0");
                 autonHashMap.put("CubeScoredMid", "0");
                 autonHashMap.put("CubeScoredHigh", "0");
-
-                autonHashMap.put("CubeMissedHybrid", "0");
-                autonHashMap.put("CubeMissedMid", "0");
-                autonHashMap.put("CubeMissedHigh", "0");
+                autonHashMap.put("CubeMissed", "0");
 
                 autonHashMap.put("ConePossessed", "0");
                 autonHashMap.put("ConeScoredHybrid", "0");
                 autonHashMap.put("ConeScoredMid", "0");
                 autonHashMap.put("ConeScoredHigh", "0");
-                autonHashMap.put("ConeMissedHybrid", "0");
-                autonHashMap.put("ConeMissedMid", "0");
-                autonHashMap.put("ConeMissedHigh", "0");
+                autonHashMap.put("ConeMissed", "0");
+
                 autonHashMap.put("Mobility", "0");
                 autonHashMap.put("AutonPos", "N"); //See
                 break;
@@ -348,23 +345,17 @@ public class HashMapManager{
                 //include all the items that will be in the teleopHashMap
                 teleopHashMap.put("HashMapName", "Teleop");
                 teleopHashMap.put("CubePossessed", "0");
-                teleopHashMap.put("ConePossessed", "0");
-                teleopHashMap.put("ScoredUpper", "0");
-                teleopHashMap.put("ScoredLower", "0");
-                teleopHashMap.put("MissedUpper", "0");
-                teleopHashMap.put("MissedLower", "0");
+
                 teleopHashMap.put("CubeScoredHybrid", "0");
                 teleopHashMap.put("CubeScoredMid", "0");
                 teleopHashMap.put("CubeScoredHigh", "0");
-                teleopHashMap.put("CubeMissedHybrid", "0");
-                teleopHashMap.put("CubeMissedMid", "0");
-                teleopHashMap.put("CubeMissedHigh", "0");
+                teleopHashMap.put("CubeMissed", "0");
+
+                teleopHashMap.put("ConePossessed", "0");
                 teleopHashMap.put("ConeScoredHybrid", "0");
                 teleopHashMap.put("ConeScoredMid", "0");
                 teleopHashMap.put("ConeScoredHigh", "0");
-                teleopHashMap.put("ConeMissedHybrid", "0");
-                teleopHashMap.put("ConeMissedMid", "0");
-                teleopHashMap.put("ConeMissedHigh", "0");
+                teleopHashMap.put("ConeMissed", "0");
                 break;
             case CLIMB:
                 //include all the items that will be in the climbHashMap
