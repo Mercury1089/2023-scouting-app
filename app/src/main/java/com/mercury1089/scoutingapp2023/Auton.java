@@ -101,8 +101,6 @@ public class Auton extends Fragment {
     private TextView scoringDescription;
     private TextView IDCones;
     private TextView IDCubes;
-    private TextView IDCubesPossessed;
-    private TextView IDCubesMissed;
 
     private TextView miscID;
     private TextView miscDescription;
@@ -183,8 +181,8 @@ public class Auton extends Fragment {
         coneScoredHybridCounter = getView().findViewById(R.id.ConeScoredHybridCounter);
 
         coneMissedID = getView().findViewById(R.id.IDConeMissed);
-        coneMissedIncrementButton = getView().findViewById(R.id.ConePossessedButton);
-        coneMissedDecrementButton = getView().findViewById(R.id.ConeNotPossessedButton);
+        coneMissedIncrementButton = getView().findViewById(R.id.ConeMissedButton);
+        coneMissedDecrementButton = getView().findViewById(R.id.ConeNotMissedButton);
         coneMissedCounter = getView().findViewById(R.id.ConeMissedCounter);
 
         cubesPossessedID = getView().findViewById(R.id.IDCubesPossessed);
@@ -397,6 +395,27 @@ public class Auton extends Fragment {
              public void onTabReselected(TabLayout.Tab tab) {
 
              }
+        });
+
+        conePossessedIncrementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int currentCount = Integer.parseInt((String) conePossessedCounter.getText());
+                currentCount++;
+                autonHashMap.put("ConePossessed", String.valueOf(currentCount));
+                updateXMLObjects();
+            }
+        });
+
+        conePossessedDecrementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int currentCount = Integer.parseInt((String) conePossessedCounter.getText());
+                if (currentCount > 0)
+                    currentCount--;
+                autonHashMap.put("ConePossessed", String.valueOf(currentCount));
+                updateXMLObjects();
+            }
         });
 
         coneScoredTopIncrementButton.setOnClickListener(new View.OnClickListener() {
@@ -614,9 +633,11 @@ public class Auton extends Fragment {
     }
 
     private void possessionButtonsEnabledState(boolean enable){
+        conesPossessedID.setEnabled(enable);
         conePossessedIncrementButton.setEnabled(enable);
         conePossessedDecrementButton.setEnabled(enable);
         conePossessedCounter.setEnabled(enable);
+        cubesPossessedID.setEnabled(enable);
         cubePossessedIncrementButton.setEnabled(enable);
         cubePossessedDecrementButton.setEnabled(enable);
         cubePossessedCounter.setEnabled(enable);
@@ -627,8 +648,8 @@ public class Auton extends Fragment {
         scoringDescription.setEnabled(enable);
         IDCones.setEnabled(enable);
         IDCubes.setEnabled(enable);
-        IDCubesPossessed.setEnabled(enable);
-        IDCubesMissed.setEnabled(enable);
+        cubesPossessedID.setEnabled(enable);
+        cubesMissedID.setEnabled(enable);
 
         coneScoredTopIncrementButton.setEnabled(enable);
         coneScoredTopDecrementButton.setEnabled(enable);
@@ -684,7 +705,7 @@ public class Auton extends Fragment {
     }
 
     private void updateXMLObjects(){
-        conePossessedCounter.setText(GenUtils.padLeftZeros(autonHashMap.get("ConePosssessed"), 2));
+        conePossessedCounter.setText(GenUtils.padLeftZeros(autonHashMap.get("ConePossessed"), 2));
         coneScoredTopCounter.setText(GenUtils.padLeftZeros(autonHashMap.get("ConeScoredHigh"), 2));
         coneScoredMidCounter.setText(GenUtils.padLeftZeros(autonHashMap.get("ConeScoredMid"), 2));
         coneScoredHybridCounter.setText(GenUtils.padLeftZeros(autonHashMap.get("ConeScoredHybrid"), 2));
@@ -696,7 +717,7 @@ public class Auton extends Fragment {
         cubesScoredHybridCounter.setText(GenUtils.padLeftZeros(autonHashMap.get("CubeScoredHybrid"), 2));
         cubesMissedCounter.setText(GenUtils.padLeftZeros(autonHashMap.get("CubeMissed"), 2));
 
-        mobilitySwitch.setChecked(autonHashMap.get("Taxi").equals("1"));
+        mobilitySwitch.setChecked(autonHashMap.get("Mobility").equals("1"));
 
         if(setupHashMap.get("FellOver").equals("1")) {
             fellOverSwitch.setChecked(true);

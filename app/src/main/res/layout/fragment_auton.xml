@@ -229,8 +229,8 @@
         android:text="@string/MiscTitle"
         android:textColor="@drawable/header_states"
         android:textSize="@dimen/header_text_size"
-        app:layout_constraintTop_toBottomOf="@+id/ConesMissedToggle"
-        tools:layout_editor_absoluteX="45dp" />
+        app:layout_constraintStart_toStartOf="@+id/IDScoring"
+        app:layout_constraintTop_toBottomOf="@+id/ConesMissedToggle" />
 
     <TextView
         android:id="@+id/IDMiscDirections"
@@ -737,6 +737,7 @@
         android:id="@+id/CubePossessedCounter"
         android:layout_width="38dp"
         android:layout_height="35dp"
+        android:layout_marginStart="10dp"
         android:gravity="center"
         android:paddingStart="5dp"
         android:paddingTop="4dp"
@@ -746,8 +747,8 @@
         android:textColor="@drawable/text_states"
         android:textSize="@dimen/instruction_text_size"
         app:layout_constraintBottom_toBottomOf="@+id/CubesPossessedToggle"
-        app:layout_constraintTop_toTopOf="@+id/CubesPossessedToggle"
-        tools:layout_editor_absoluteX="521dp" />
+        app:layout_constraintStart_toEndOf="@+id/CubesPossessedToggle"
+        app:layout_constraintTop_toTopOf="@+id/CubesPossessedToggle" />
 
     <TextView
         android:id="@+id/CubeScoredTopCounter"
