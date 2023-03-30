@@ -91,6 +91,7 @@ public class Auton extends Fragment {
 
     //Auton Charge Station
     private TabLayout autonCSTabs;
+    private TextView chargeStationID;
 
     //Switches
     private Switch mobilitySwitch;
@@ -220,13 +221,14 @@ public class Auton extends Fragment {
 
         miscID = getView().findViewById(R.id.IDMisc);
         miscDescription = getView().findViewById(R.id.IDMiscDirections);
+        chargeStationID = getView().findViewById(R.id.IDChargeStation);
+        autonCSTabs = getView().findViewById(R.id.AutonChargeStationTabs);
         mobilityID = getView().findViewById(R.id.IDMobility);
         mobilitySwitch = getView().findViewById(R.id.MobilitySwitch);
         fellOverSwitch = getView().findViewById(R.id.FellOverSwitch);
         fellOverID = getView().findViewById(R.id.IDFellOver);
 
         nextButton = getView().findViewById(R.id.NextTeleopButton);
-        autonCSTabs = getView().findViewById(R.id.AutonChargeStationTabs);
 
         topEdgeBar = getView().findViewById(R.id.topEdgeBar);
         bottomEdgeBar = getView().findViewById(R.id.bottomEdgeBar);
@@ -705,6 +707,8 @@ public class Auton extends Fragment {
     private void miscButtonsEnabledState(boolean enable){
         miscID.setEnabled(enable);
         miscDescription.setEnabled(enable);
+        chargeStationID.setEnabled(enable);
+        autonCSTabs.setEnabled(enable);
         mobilitySwitch.setEnabled(enable);
         mobilityID.setEnabled(enable);
         fellOverSwitch.setEnabled(enable);
@@ -718,6 +722,8 @@ public class Auton extends Fragment {
 
         miscID.setEnabled(enable);
         miscDescription.setEnabled(enable);
+        chargeStationID.setEnabled(enable);
+        autonCSTabs.setEnabled(enable);
         mobilitySwitch.setEnabled(enable);
         mobilityID.setEnabled(enable);
     }

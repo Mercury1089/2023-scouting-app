@@ -11,6 +11,19 @@
     tools:context=".MatchActivity">
 
     <TextView
+        android:id="@+id/IDChargeStation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/open_sans"
+        android:text="@string/ChargeStation"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/label_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/AutonChargeStationTabs"
+        app:layout_constraintStart_toEndOf="@+id/AutonChargeStationTabs"
+        app:layout_constraintTop_toTopOf="@+id/AutonChargeStationTabs" />
+
+    <TextView
         android:id="@+id/IDCubesScoredMid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -244,43 +257,32 @@
         app:layout_constraintStart_toStartOf="@+id/IDMisc"
         app:layout_constraintTop_toBottomOf="@+id/IDMisc" />
 
-    <TextView
-        android:id="@+id/IDMobility"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:fontFamily="@font/open_sans"
-        android:text="@string/Mobility"
-        android:textColor="@drawable/text_states"
-        android:textSize="@dimen/label_text_size"
-        app:layout_constraintBottom_toBottomOf="@+id/MobilitySwitch"
-        app:layout_constraintStart_toEndOf="@+id/MobilitySwitch"
-        app:layout_constraintTop_toTopOf="@+id/MobilitySwitch" />
-
     <Switch
         android:id="@+id/MobilitySwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
         android:thumb="@drawable/thumb_states"
         android:track="@drawable/track_states"
         app:layout_constraintStart_toStartOf="@+id/IDMisc"
-        app:layout_constraintTop_toBottomOf="@+id/IDMiscDirections" />
+        app:layout_constraintTop_toBottomOf="@+id/AutonChargeStationTabs" />
 
     <TextView
-        android:id="@+id/IDFellOver"
+        android:id="@+id/IDMobility"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="8dp"
         android:fontFamily="@font/open_sans"
-        android:text="@string/FellOver"
+        android:text="@string/Mobility"
         android:textColor="@drawable/text_states"
         android:textSize="@dimen/label_text_size"
-        app:layout_constraintBottom_toBottomOf="@+id/FellOverSwitch"
-        app:layout_constraintStart_toEndOf="@+id/FellOverSwitch"
-        app:layout_constraintTop_toTopOf="@+id/FellOverSwitch" />
+        app:layout_constraintBottom_toBottomOf="@+id/MobilitySwitch"
+        app:layout_constraintStart_toEndOf="@+id/MobilitySwitch"
+        app:layout_constraintTop_toTopOf="@+id/MobilitySwitch"
+        app:layout_constraintVertical_bias="0.571" />
 
     <Switch
         android:id="@+id/FellOverSwitch"
@@ -288,11 +290,26 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="12dp"
         android:thumb="@drawable/thumb_states"
         android:track="@drawable/track_states"
         app:layout_constraintStart_toStartOf="@+id/MobilitySwitch"
         app:layout_constraintTop_toBottomOf="@+id/MobilitySwitch" />
+
+    <TextView
+        android:id="@+id/IDFellOver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:fontFamily="@font/open_sans"
+        android:text="@string/FellOver"
+        android:textColor="@drawable/text_states"
+        android:textSize="@dimen/label_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/FellOverSwitch"
+        app:layout_constraintStart_toEndOf="@+id/FellOverSwitch"
+        app:layout_constraintTop_toTopOf="@+id/FellOverSwitch"
+        app:layout_constraintVertical_bias="0.476" />
 
     <Button
         android:id="@+id/NextTeleopButton"
@@ -912,37 +929,36 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/AutonChargeStationTabs"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="10dp"
         android:background="@color/bg_general"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/IDMiscDirections"
         app:layout_constraintTop_toBottomOf="@+id/IDMiscDirections"
         app:tabBackground="@drawable/button_states"
         app:tabIndicatorColor="@color/rust"
         app:tabTextColor="@color/ice">
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/lowRungTab"
+            android:id="@+id/noneTab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/toggle_left_states"
-            android:text="@string/LowRung"
+            android:text="@string/autonCSNone"
             app:tabBackground="@drawable/toggle_left_states" />
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/midRungTab"
+            android:id="@+id/dockedTab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/MidRung" />
+            android:text="@string/Docked" />
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/highRungTab"
+            android:id="@+id/engagedTab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/toggle_right_states"
-            android:text="@string/HighRung"
+            android:text="@string/Engaged"
             app:tabBackground="@drawable/toggle_right_states" />
 
     </com.google.android.material.tabs.TabLayout>

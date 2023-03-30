@@ -27,6 +27,9 @@
         <string name="Teleop">Teleop</string>
         <string name="Climb">Climb</string>
 
+        <string name="Docked">DOCKED</string>
+        <string name="Engaged">ENGAGED</string>
+        <string name="autonCSNone">NONE</string>
 
 <!-- PregameActivity -->
     <!-- ID Fields -->
@@ -75,6 +78,7 @@
         <string name="Exit">Exit</string>
         <string name="Done">DONE</string>
         <string name="Cancel">CANCEL</string>
+        <string name="ChargeStation">Charge Station</string>
         <string name="Save">Save</string>
 
     <!-- Exit Popup -->

@@ -24,7 +24,7 @@
         app:tabTextColor="@color/ice">
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/lowRungTab"
+            android:id="@+id/noneTab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/toggle_left_states"
@@ -32,13 +32,13 @@
             app:tabBackground="@drawable/toggle_left_states" />
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/midRungTab"
+            android:id="@+id/dockedTab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/MidRung" />
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/highRungTab"
+            android:id="@+id/engagedTab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/toggle_right_states"
