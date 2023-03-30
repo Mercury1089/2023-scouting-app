@@ -19,9 +19,9 @@
         android:text="@string/ChargeStation"
         android:textColor="@drawable/text_states"
         android:textSize="@dimen/label_text_size"
-        app:layout_constraintBottom_toBottomOf="@+id/AutonChargeStationTabs"
-        app:layout_constraintStart_toEndOf="@+id/AutonChargeStationTabs"
-        app:layout_constraintTop_toTopOf="@+id/AutonChargeStationTabs" />
+        app:layout_constraintBottom_toBottomOf="@+id/TeleopChargeStationTabs"
+        app:layout_constraintStart_toEndOf="@+id/TeleopChargeStationTabs"
+        app:layout_constraintTop_toTopOf="@+id/TeleopChargeStationTabs" />
 
     <TextView
         android:id="@+id/IDCubesScoredMid"
@@ -190,8 +190,8 @@
         android:layout_marginTop="10dp"
         android:thumb="@drawable/thumb_states"
         android:track="@drawable/track_states"
-        app:layout_constraintStart_toStartOf="@+id/AutonChargeStationTabs"
-        app:layout_constraintTop_toBottomOf="@+id/AutonChargeStationTabs" />
+        app:layout_constraintStart_toStartOf="@+id/TeleopChargeStationTabs"
+        app:layout_constraintTop_toBottomOf="@+id/TeleopChargeStationTabs" />
 
     <TextView
         android:id="@+id/IDFellOver"
@@ -811,7 +811,7 @@
     </RadioGroup>
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/AutonChargeStationTabs"
+        android:id="@+id/TeleopChargeStationTabs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -827,7 +827,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/toggle_left_states"
-            android:text="@string/autonCSNone"
+            android:text="@string/CSNone"
             app:tabBackground="@drawable/toggle_left_states" />
 
         <com.google.android.material.tabs.TabItem

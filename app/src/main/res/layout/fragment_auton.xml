@@ -944,7 +944,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/toggle_left_states"
-            android:text="@string/autonCSNone"
+            android:text="@string/CSNone"
             app:tabBackground="@drawable/toggle_left_states" />
 
         <com.google.android.material.tabs.TabItem

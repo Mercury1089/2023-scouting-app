@@ -14,7 +14,7 @@
         <string name="ClearTitle">CLEAR THIS SCREEN?</string>
         <string name="ExitTitle">EXIT</string>
         <string name="PossessionTitle">POSSESSION</string>
-        <string name="ScoringTitle">SCORING</string>
+        <string name="ScoringTitle">GRID SCORING</string>
         <string name="MiscTitle">MISC</string>
         <string name="ControlPanelTitle">CONTROL PANEL</string>
         <string name="ClimbTitle">CLIMB</string>
@@ -30,7 +30,7 @@
         <string name="Parked">PARKED</string>
         <string name="Docked">DOCKED</string>
         <string name="Engaged">ENGAGED</string>
-        <string name="autonCSNone">NONE</string>
+        <string name="CSNone">NONE</string>
 
 <!-- PregameActivity -->
     <!-- ID Fields -->

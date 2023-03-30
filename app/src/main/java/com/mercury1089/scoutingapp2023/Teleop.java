@@ -33,6 +33,7 @@ public class Teleop extends Fragment {
     //HashMaps for sending QR data between screens
     private LinkedHashMap<String, String> setupHashMap;
     private LinkedHashMap<String, String> teleopHashMap;
+    private LinkedHashMap<String, String> climbHashMap;
 
     //Cone Section
     private TextView conesScoredID;
@@ -95,7 +96,6 @@ public class Teleop extends Fragment {
     private TextView chargeStationID;
 
     //Switches
-    private Switch mobilitySwitch;
     private Switch fellOverSwitch;
 
     //TextViews
@@ -110,8 +110,6 @@ public class Teleop extends Fragment {
 
     private TextView miscID;
     private TextView miscDescription;
-    private TextView mobilityID;
-
     private TextView fellOverID;
 
     //ImageViews
@@ -223,9 +221,7 @@ public class Teleop extends Fragment {
         miscID = getView().findViewById(R.id.IDMisc);
         miscDescription = getView().findViewById(R.id.IDMiscDirections);
         chargeStationID = getView().findViewById(R.id.IDChargeStation);
-        autonCSTabs = getView().findViewById(R.id.AutonChargeStationTabs);
-        mobilityID = getView().findViewById(R.id.IDMobility);
-        mobilitySwitch = getView().findViewById(R.id.MobilitySwitch);
+        autonCSTabs = getView().findViewById(R.id.TeleopChargeStationTabs);
         fellOverSwitch = getView().findViewById(R.id.FellOverSwitch);
         fellOverID = getView().findViewById(R.id.IDFellOver);
 
@@ -241,6 +237,7 @@ public class Teleop extends Fragment {
         HashMapManager.checkNullOrEmpty(HashMapManager.HASH.AUTON);
         setupHashMap = HashMapManager.getSetupHashMap();
         teleopHashMap = HashMapManager.getTeleopHashMap();
+        climbHashMap = HashMapManager.getClimbHashMap();
 
         //fill in counters with data
         updateXMLObjects();
@@ -250,18 +247,24 @@ public class Teleop extends Fragment {
         autonCSTabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                Log.d("CLIMB", tab.getText().toString());
+                String t = (String)tab.getText();
+                if (t.equals("PARKED"))
+                   climbHashMap.put("pos", "P");
+                else if (t.equals("DOCKED"))
+                    climbHashMap.put("Pos", "D");
+                else if (t.equals("ENGAGED"))
+                    climbHashMap.put("Pos", "E");
+                else
+                    climbHashMap.put("Pos", "N");
 
             }
 
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
+            public void onTabUnselected(TabLayout.Tab tab) {}
 
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
+            public void onTabReselected(TabLayout.Tab tab) {}
         });
 
         conePossessedIncrementButton.setOnClickListener(new View.OnClickListener() {
@@ -477,13 +480,6 @@ public class Teleop extends Fragment {
             }
         });
 
-        mobilitySwitch.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                teleopHashMap.put("Mobility", isChecked ? "1" : "0");
-                updateXMLObjects();
-            }
-        });
-
         fellOverSwitch.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 setupHashMap.put("FellOver", isChecked ? "1" : "0");
@@ -566,8 +562,6 @@ public class Teleop extends Fragment {
         miscDescription.setEnabled(enable);
         chargeStationID.setEnabled(enable);
         autonCSTabs.setEnabled(enable);
-        mobilitySwitch.setEnabled(enable);
-        mobilityID.setEnabled(enable);
         fellOverSwitch.setEnabled(enable);
         fellOverID.setEnabled(enable);
         nextButton.setEnabled(enable);
@@ -581,8 +575,6 @@ public class Teleop extends Fragment {
         miscDescription.setEnabled(enable);
         chargeStationID.setEnabled(enable);
         autonCSTabs.setEnabled(enable);
-        mobilitySwitch.setEnabled(enable);
-        mobilityID.setEnabled(enable);
     }
 
     private void updateXMLObjects(){
@@ -597,8 +589,6 @@ public class Teleop extends Fragment {
         cubeScoredMidCounter.setText(GenUtils.padLeftZeros(teleopHashMap.get("CubeScoredMid"), 2));
         cubesScoredHybridCounter.setText(GenUtils.padLeftZeros(teleopHashMap.get("CubeScoredHybrid"), 2));
         cubesMissedCounter.setText(GenUtils.padLeftZeros(teleopHashMap.get("CubeMissed"), 2));
-
-        mobilitySwitch.setChecked(teleopHashMap.get("Mobility").equals("1"));
 
         if(setupHashMap.get("FellOver").equals("1")) {
             fellOverSwitch.setChecked(true);

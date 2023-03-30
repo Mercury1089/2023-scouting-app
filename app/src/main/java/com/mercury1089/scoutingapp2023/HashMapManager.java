@@ -362,7 +362,7 @@ public class HashMapManager{
             case CLIMB:
                 //include all the items that will be in the climbHashMap
                 climbHashMap.put("HashMapName", "Climb");
-                //Will be D, N, P, or N (Dock, Engage, Park, or None)
+                //Will be D, E, P, or N (Dock, Engage, Park, or None)
                 climbHashMap.put("Pos", "N");
                 break;
         }
