@@ -342,8 +342,8 @@ public class HashMapManager{
                 autonHashMap.put("AutonPos", "N"); //See
                 break;
             case TELEOP:
-                //include all the items that will be in the teleopHashMap
-                teleopHashMap.put("HashMapName", "Teleop");
+                //include all the items that will be in the autonHashMap
+                teleopHashMap.put("HashMapName", "Auton");
                 teleopHashMap.put("CubePossessed", "0");
 
                 teleopHashMap.put("CubeScoredHybrid", "0");
@@ -356,6 +356,8 @@ public class HashMapManager{
                 teleopHashMap.put("ConeScoredMid", "0");
                 teleopHashMap.put("ConeScoredHigh", "0");
                 teleopHashMap.put("ConeMissed", "0");
+
+                //Charge Station should be put in ClimbHashMap (see below)
                 break;
             case CLIMB:
                 //include all the items that will be in the climbHashMap

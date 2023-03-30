@@ -133,48 +133,17 @@
         app:layout_constraintStart_toEndOf="@+id/ConePossessedCounter"
         app:layout_constraintTop_toBottomOf="@+id/IDScoringDirections" />
 
-    <ImageView
-        android:id="@+id/rightEdgeBar"
-        android:layout_width="5dp"
-        android:layout_height="0dp"
-        android:alpha="0"
-        android:background="@drawable/teleop_warning"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/topEdgeBar"
-        android:layout_width="540dp"
-        android:layout_height="5dp"
-        android:layout_marginStart="20dp"
-        android:alpha="0"
-        android:background="@drawable/teleop_warning"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/bottomEdgeBar"
-        android:layout_width="0dp"
-        android:layout_height="5dp"
-        android:alpha="0"
-        android:background="@drawable/teleop_warning"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/rightEdgeBar"
-        app:layout_constraintStart_toStartOf="@+id/leftEdgeBar" />
-
     <TextView
         android:id="@+id/IDScoring"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/futura_medium_condensed_bt"
         android:text="@string/ScoringTitle"
         android:textColor="@drawable/header_states"
         android:textSize="@dimen/header_text_size"
-        app:layout_constraintStart_toEndOf="@+id/leftEdgeBar"
-        app:layout_constraintTop_toBottomOf="@+id/topEdgeBar" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/IDScoringDirections"
@@ -254,18 +223,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/leftEdgeBar"
-        android:layout_width="5dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:alpha="0"
-        android:background="@drawable/teleop_warning"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.925" />
 
     <TextView
         android:id="@+id/IDCones"
@@ -872,6 +829,12 @@
             android:background="@drawable/toggle_left_states"
             android:text="@string/autonCSNone"
             app:tabBackground="@drawable/toggle_left_states" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/parkedTab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Parked" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/dockedTab"

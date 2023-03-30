@@ -27,6 +27,7 @@
         <string name="Teleop">Teleop</string>
         <string name="Climb">Climb</string>
 
+        <string name="Parked">PARKED</string>
         <string name="Docked">DOCKED</string>
         <string name="Engaged">ENGAGED</string>
         <string name="autonCSNone">NONE</string>
