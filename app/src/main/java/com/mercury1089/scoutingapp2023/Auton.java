@@ -648,37 +648,43 @@ public class Auton extends Fragment {
         scoringDescription.setEnabled(enable);
         IDCones.setEnabled(enable);
         IDCubes.setEnabled(enable);
-        cubesPossessedID.setEnabled(enable);
-        cubesMissedID.setEnabled(enable);
 
+        conesScoredTopID.setEnabled(enable);
         coneScoredTopIncrementButton.setEnabled(enable);
         coneScoredTopDecrementButton.setEnabled(enable);
         coneScoredTopCounter.setEnabled(enable);
 
+        conesScoredMidID.setEnabled(enable);
         coneScoredMidIncrementButton.setEnabled(enable);
         coneScoredMidDecrementButton.setEnabled(enable);
         coneScoredMidCounter.setEnabled(enable);
 
+        coneScoredHybridID.setEnabled(enable);
         coneScoredHybridIncrementButton.setEnabled(enable);
         coneScoredHybridDecrementButton.setEnabled(enable);
         coneScoredHybridCounter.setEnabled(enable);
 
+        coneMissedID.setEnabled(enable);
         coneMissedIncrementButton.setEnabled(enable);
         coneMissedDecrementButton.setEnabled(enable);
         coneMissedCounter.setEnabled(enable);
 
+        cubeScoredTopID.setEnabled(enable);
         cubeScoredTopIncrementButton.setEnabled(enable);
         cubeScoredTopDecrementButton.setEnabled(enable);
         cubeScoredTopCounter.setEnabled(enable);
 
+        cubeScoredMidID.setEnabled(enable);
         cubeScoredMidIncrementButton.setEnabled(enable);
         cubeScoredMidDecrementButton.setEnabled(enable);
         cubeScoredMidCounter.setEnabled(enable);
 
+        cubeScoredHybridID.setEnabled(enable);
         cubesScoredHybridIncrementButton.setEnabled(enable);
         cubesScoredHybridDecrementButton.setEnabled(enable);
         cubesScoredHybridCounter.setEnabled(enable);
 
+        cubesMissedID.setEnabled(enable);
         cubeMissedIncrementButton.setEnabled(enable);
         cubeMissedDecrementButton.setEnabled(enable);
         cubesMissedCounter.setEnabled(enable);
@@ -731,45 +737,45 @@ public class Auton extends Fragment {
             allButtonsEnabledState(true);
             // Disables decrement buttons if counter is at 0
             if(Integer.parseInt((String) conePossessedCounter.getText()) <= 0)
-                conePossessedDecrementButton.setEnabled(false);
+                conePossessedDecrementButton.setClickable(false);
             else
-                conePossessedDecrementButton.setEnabled(true);
+                conePossessedDecrementButton.setClickable(true);
             if (Integer.parseInt((String) coneScoredTopCounter.getText()) <= 0)
-                coneScoredTopDecrementButton.setEnabled(false);
+                coneScoredTopDecrementButton.setClickable(false);
             else
-                coneScoredTopDecrementButton.setEnabled(true);
+                coneScoredTopDecrementButton.setClickable(true);
             if (Integer.parseInt((String) coneScoredMidCounter.getText()) <= 0)
-                coneScoredMidDecrementButton.setEnabled(false);
+                coneScoredMidDecrementButton.setClickable(false);
             else
-                coneScoredMidDecrementButton.setEnabled(true);
+                coneScoredMidDecrementButton.setClickable(true);
             if (Integer.parseInt((String) coneScoredHybridCounter.getText()) <= 0)
-                coneScoredHybridDecrementButton.setEnabled(false);
+                coneScoredHybridDecrementButton.setClickable(false);
             else
-                coneScoredHybridDecrementButton.setEnabled(true);
+                coneScoredHybridDecrementButton.setClickable(true);
             if (Integer.parseInt((String) coneMissedCounter.getText()) <= 0)
-                coneMissedDecrementButton.setEnabled(false);
+                coneMissedDecrementButton.setClickable(false);
             else
-                coneMissedDecrementButton.setEnabled(true);
+                coneMissedDecrementButton.setClickable(true);
             if (Integer.parseInt((String) cubePossessedCounter.getText()) <= 0)
-                cubePossessedDecrementButton.setEnabled(false);
+                cubePossessedDecrementButton.setClickable(false);
             else
-                cubePossessedDecrementButton.setEnabled(true);
+                cubePossessedDecrementButton.setClickable(true);
             if (Integer.parseInt((String) cubeScoredTopCounter.getText()) <= 0)
-                cubeScoredTopDecrementButton.setEnabled(false);
+                cubeScoredTopDecrementButton.setClickable(false);
             else
-                cubeScoredTopDecrementButton.setEnabled(true);
+                cubeScoredTopDecrementButton.setClickable(true);
             if (Integer.parseInt((String) cubeScoredMidCounter.getText()) <= 0)
-                cubeScoredMidDecrementButton.setEnabled(false);
+                cubeScoredMidDecrementButton.setClickable(false);
             else
-                cubeScoredMidDecrementButton.setEnabled(true);
+                cubeScoredMidDecrementButton.setClickable(true);
             if (Integer.parseInt((String) cubesScoredHybridCounter.getText()) <= 0)
-                cubesScoredHybridDecrementButton.setEnabled(false);
+                cubesScoredHybridDecrementButton.setClickable(false);
             else
-                cubesScoredHybridDecrementButton.setEnabled(true);
+                cubesScoredHybridDecrementButton.setClickable(true);
             if (Integer.parseInt((String) cubesMissedCounter.getText()) <= 0)
-                cubeMissedDecrementButton.setEnabled(false);
+                cubeMissedDecrementButton.setClickable(false);
             else
-                cubeMissedDecrementButton.setEnabled(true);
+                cubeMissedDecrementButton.setClickable(true);
         }
     }
 

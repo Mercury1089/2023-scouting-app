@@ -38,21 +38,21 @@
             android:id="@+id/CubeNotScoredTopButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
-            android:background="@color/grape"
+            android:background="@drawable/cube_scoring_button_states"
             android:enabled="true"
             android:fontFamily="@font/open_sans"
             android:gravity="center"
-            android:src="@drawable/minus_states"
+            android:src="@drawable/cube_button_minus_states"
             tools:ignore="ContentDescription" />
 
         <ImageButton
             android:id="@+id/CubeScoredTopButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
-            android:background="@color/grape"
+            android:background="@drawable/cube_scoring_button_states"
             android:enabled="false"
             android:gravity="center"
-            android:src="@drawable/plus_states"
+            android:src="@drawable/cube_button_plus_states"
             tools:ignore="ContentDescription" />
 
         <!-- android:button="@drawable/button_rounded_corners" -->
@@ -87,21 +87,21 @@
             android:id="@+id/CubeNotPossessedButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
-            android:background="@color/grape"
+            android:background="@drawable/cube_scoring_button_states"
             android:enabled="true"
             android:fontFamily="@font/open_sans"
             android:gravity="center"
-            android:src="@drawable/minus_states"
+            android:src="@drawable/cube_button_minus_states"
             tools:ignore="ContentDescription" />
 
         <ImageButton
             android:id="@+id/CubePossessedButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
-            android:background="@color/grape"
+            android:background="@drawable/cube_scoring_button_states"
             android:enabled="false"
             android:gravity="center"
-            android:src="@drawable/plus_states"
+            android:src="@drawable/cube_button_plus_states"
             tools:ignore="ContentDescription" />
 
         <!-- android:button="@drawable/button_rounded_corners" -->
@@ -115,7 +115,7 @@
         android:layout_marginTop="15dp"
         android:fontFamily="@font/futura_medium_condensed_bt"
         android:text="@string/Cubes"
-        android:textColor="@color/periwinkle"
+        android:textColor="@drawable/cube_text_color_states"
         android:textSize="@dimen/subheader_text_size"
         app:layout_constraintStart_toEndOf="@+id/ConePossessedCounter"
         app:layout_constraintTop_toBottomOf="@+id/IDScoringDirections" />
@@ -331,7 +331,7 @@
         android:layout_marginTop="15dp"
         android:fontFamily="@font/futura_medium_condensed_bt"
         android:text="@string/Cones"
-        android:textColor="@color/banana"
+        android:textColor="@drawable/cone_text_color_states"
         android:textSize="@dimen/subheader_text_size"
         app:layout_constraintStart_toStartOf="@+id/IDScoring"
         app:layout_constraintTop_toBottomOf="@+id/IDScoringDirections" />
@@ -393,7 +393,7 @@
             android:id="@+id/ConeNotPossessedButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
-            android:background="@color/banana"
+            android:background="@drawable/cone_scoring_button_states"
             android:enabled="true"
             android:fontFamily="@font/open_sans"
             android:gravity="center"
@@ -404,7 +404,7 @@
             android:id="@+id/ConePossessedButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
-            android:background="@color/banana"
+            android:background="@drawable/cone_scoring_button_states"
             android:enabled="false"
             android:gravity="center"
             android:src="@drawable/plus_disabled"
@@ -464,7 +464,7 @@
             android:id="@+id/ConeNotScoredTopButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
-            android:background="@color/banana"
+            android:background="@drawable/cone_scoring_button_states"
             android:enabled="true"
             android:fontFamily="@font/open_sans"
             android:gravity="center"
@@ -476,7 +476,7 @@
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
             android:layout_weight="1"
-            android:background="@color/banana"
+            android:background="@drawable/cone_scoring_button_states"
             android:enabled="false"
             android:gravity="center"
             android:src="@drawable/plus_disabled"
@@ -527,7 +527,7 @@
             android:id="@+id/ConeNotScoredMidButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
-            android:background="@color/banana"
+            android:background="@drawable/cone_scoring_button_states"
             android:enabled="true"
             android:fontFamily="@font/open_sans"
             android:gravity="center"
@@ -539,7 +539,7 @@
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
             android:layout_weight="1"
-            android:background="@color/banana"
+            android:background="@drawable/cone_scoring_button_states"
             android:enabled="false"
             android:gravity="center"
             android:src="@drawable/plus_disabled"
@@ -603,7 +603,7 @@
             android:id="@+id/ConeNotScoredHybridButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
-            android:background="@color/banana"
+            android:background="@drawable/cone_scoring_button_states"
             android:enabled="true"
             android:fontFamily="@font/open_sans"
             android:gravity="center"
@@ -615,7 +615,7 @@
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
             android:layout_weight="1"
-            android:background="@color/banana"
+            android:background="@drawable/cone_scoring_button_states"
             android:enabled="false"
             android:gravity="center"
             android:src="@drawable/plus_disabled"
@@ -661,7 +661,7 @@
             android:id="@+id/ConeNotMissedButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
-            android:background="@color/banana"
+            android:background="@drawable/cone_scoring_button_states"
             android:enabled="true"
             android:fontFamily="@font/open_sans"
             android:gravity="center"
@@ -672,7 +672,7 @@
             android:id="@+id/ConeMissedButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
-            android:background="@color/banana"
+            android:background="@drawable/cone_scoring_button_states"
             android:enabled="false"
             android:gravity="center"
             android:src="@drawable/plus_disabled"
@@ -817,21 +817,21 @@
             android:id="@+id/CubeNotScoredMidButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
-            android:background="@color/grape"
+            android:background="@drawable/cube_scoring_button_states"
             android:enabled="true"
             android:fontFamily="@font/open_sans"
             android:gravity="center"
-            android:src="@drawable/minus_states"
+            android:src="@drawable/cube_button_minus_states"
             tools:ignore="ContentDescription" />
 
         <ImageButton
             android:id="@+id/CubeScoredMidButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
-            android:background="@color/grape"
+            android:background="@drawable/cube_scoring_button_states"
             android:enabled="false"
             android:gravity="center"
-            android:src="@drawable/plus_states"
+            android:src="@drawable/cube_button_plus_states"
             tools:ignore="ContentDescription" />
 
         <!-- android:button="@drawable/button_rounded_corners" -->
@@ -854,21 +854,21 @@
             android:id="@+id/CubeNotMissedButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
-            android:background="@color/grape"
+            android:background="@drawable/cube_scoring_button_states"
             android:enabled="true"
             android:fontFamily="@font/open_sans"
             android:gravity="center"
-            android:src="@drawable/minus_states"
+            android:src="@drawable/cube_button_minus_states"
             tools:ignore="ContentDescription" />
 
         <ImageButton
             android:id="@+id/CubeMissedButton"
             android:layout_width="@dimen/square_toggle_length"
-            android:layout_height="@dimen/square_toggle_length"
-            android:background="@color/grape"
+            android:layout_height="match_parent"
+            android:background="@drawable/cube_scoring_button_states"
             android:enabled="false"
             android:gravity="center"
-            android:src="@drawable/plus_states"
+            android:src="@drawable/cube_button_plus_states"
             tools:ignore="ContentDescription" />
 
         <!-- android:button="@drawable/button_rounded_corners" -->
@@ -890,21 +890,21 @@
             android:id="@+id/CubeNotScoredHybridButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
-            android:background="@color/grape"
+            android:background="@drawable/cube_scoring_button_states"
             android:enabled="true"
             android:fontFamily="@font/open_sans"
             android:gravity="center"
-            android:src="@drawable/minus_states"
+            android:src="@drawable/cube_button_minus_states"
             tools:ignore="ContentDescription" />
 
         <ImageButton
             android:id="@+id/CubeScoredHybridButton"
             android:layout_width="@dimen/square_toggle_length"
             android:layout_height="@dimen/square_toggle_length"
-            android:background="@color/grape"
+            android:background="@drawable/cube_scoring_button_states"
             android:enabled="false"
             android:gravity="center"
-            android:src="@drawable/plus_states"
+            android:src="@drawable/cube_button_plus_states"
             tools:ignore="ContentDescription" />
 
         <!-- android:button="@drawable/button_rounded_corners" -->
