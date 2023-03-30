@@ -34,6 +34,8 @@ public class Auton extends Fragment {
     private LinkedHashMap<String, String> autonHashMap;
 
     //Cone Section
+    private TextView conesScoredID;
+
     private TextView conesPossessedID;
     private ImageButton conePossessedIncrementButton;
     private ImageButton conePossessedDecrementButton;
@@ -60,6 +62,8 @@ public class Auton extends Fragment {
     private TextView coneMissedCounter;
 
     //Cube Section
+    private TextView cubesScoredID;
+
     private TextView cubesPossessedID;
     private ImageButton cubePossessedIncrementButton;
     private ImageButton cubePossessedDecrementButton;
@@ -160,6 +164,8 @@ public class Auton extends Fragment {
         IDCones = getView().findViewById(R.id.IDCones);
         IDCubes = getView().findViewById(R.id.IDCubes);
 
+        conesScoredID = getView().findViewById(R.id.IDConesScored);
+
         conesPossessedID = getView().findViewById(R.id.IDConesPossessed);
         conePossessedIncrementButton = getView().findViewById(R.id.ConePossessedButton);
         conePossessedDecrementButton = getView().findViewById(R.id.ConeNotPossessedButton);
@@ -184,6 +190,8 @@ public class Auton extends Fragment {
         coneMissedIncrementButton = getView().findViewById(R.id.ConeMissedButton);
         coneMissedDecrementButton = getView().findViewById(R.id.ConeNotMissedButton);
         coneMissedCounter = getView().findViewById(R.id.ConeMissedCounter);
+
+        cubesScoredID = getView().findViewById(R.id.IDCubesScored);
 
         cubesPossessedID = getView().findViewById(R.id.IDCubesPossessed);
         cubePossessedIncrementButton = getView().findViewById(R.id.CubePossessedButton);
@@ -649,6 +657,8 @@ public class Auton extends Fragment {
         IDCones.setEnabled(enable);
         IDCubes.setEnabled(enable);
 
+        conesScoredID.setEnabled(enable);
+
         conesScoredTopID.setEnabled(enable);
         coneScoredTopIncrementButton.setEnabled(enable);
         coneScoredTopDecrementButton.setEnabled(enable);
@@ -668,6 +678,8 @@ public class Auton extends Fragment {
         coneMissedIncrementButton.setEnabled(enable);
         coneMissedDecrementButton.setEnabled(enable);
         coneMissedCounter.setEnabled(enable);
+
+        cubesScoredID.setEnabled(enable);
 
         cubeScoredTopID.setEnabled(enable);
         cubeScoredTopIncrementButton.setEnabled(enable);
