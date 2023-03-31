@@ -19,6 +19,7 @@
         app:layout_constraintVertical_bias="1.0"
         tools:layout="@layout/fragment_auton" />
 
+
     <fragment
         android:id="@+id/Teleop"
         android:name="com.mercury1089.scoutingapp2023.Teleop"

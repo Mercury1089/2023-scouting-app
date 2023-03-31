@@ -1,21 +1,16 @@
 package com.mercury1089.scoutingapp2023;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
-import android.content.Context;
-import android.content.res.ColorStateList;
-import android.graphics.PorterDuff;
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.os.Vibrator;
 import android.util.Log;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
@@ -26,7 +21,13 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
 import com.mercury1089.scoutingapp2023.utils.GenUtils;
+import com.mercury1089.scoutingapp2023.utils.QRStringBuilder;
+
 import java.util.LinkedHashMap;
 
 public class Teleop extends Fragment {
@@ -92,19 +93,12 @@ public class Teleop extends Fragment {
     private TextView cubesMissedCounter;
 
     //Auton Charge Station
-    private TabLayout autonCSTabs;
+    private TabLayout teleopCSTabs;
     private TextView chargeStationID;
 
     //Switches
     private Switch fellOverSwitch;
 
-    //TextViews
-    private TextView timerID;
-    private TextView secondsRemaining;
-    private TextView teleopWarning;
-
-    private TextView scoringID;
-    private TextView scoringDescription;
     private TextView IDCones;
     private TextView IDCubes;
 
@@ -118,26 +112,21 @@ public class Teleop extends Fragment {
     private ImageView leftEdgeBar;
     private ImageView rightEdgeBar;
 
-    private Button nextButton;
+    //Other
+    private ProgressDialog progressDialog;
+    private Dialog loading_alert;
+    public final static int QRCodeSize = 500;
+    private Button generateQRButton;
 
-
-    //other variables
-    private static CountDownTimer timer;
-    private boolean firstTime = true;
-    private boolean running = true;
-    private int conesPossessed, conesScoredTop, conesScoredMid, conesScoredHybrid, conesMissed;
-    private int cubePossessed, cubesScoredTop, cubesScoredMid, cubesScoredHybrid, cubesMissed;
-    private ValueAnimator teleopButtonAnimation;
-    private AnimatorSet animatorSet;
-
-    public static Auton newInstance() {
-        Auton fragment = new Auton();
+    public static Teleop newInstance() {
+        Teleop fragment = new Teleop();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
     }
 
     MatchActivity context;
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         context = (MatchActivity) getActivity();
@@ -151,16 +140,11 @@ public class Teleop extends Fragment {
         return inflated;
     }
 
-    public void onStart(){
+    public void onStart() {
         super.onStart();
 
         //linking variables to XML elements on the screen
-        timerID = getView().findViewById(R.id.IDAutonSeconds1);
-        secondsRemaining = getView().findViewById(R.id.AutonSeconds);
-        teleopWarning = getView().findViewById(R.id.TeleopWarning);
 
-        scoringID = getView().findViewById(R.id.IDScoring);
-        scoringDescription = getView().findViewById(R.id.IDScoringDirections);
         IDCones = getView().findViewById(R.id.IDCones);
         IDCubes = getView().findViewById(R.id.IDCubes);
 
@@ -203,7 +187,7 @@ public class Teleop extends Fragment {
         cubeScoredTopDecrementButton = getView().findViewById(R.id.CubeNotScoredTopButton);
         cubeScoredTopCounter = getView().findViewById(R.id.CubeScoredTopCounter);
 
-        cubeScoredMidID  = getView().findViewById(R.id.IDCubesScoredMid);
+        cubeScoredMidID = getView().findViewById(R.id.IDCubesScoredMid);
         cubeScoredMidIncrementButton = getView().findViewById(R.id.CubeScoredMidButton);
         cubeScoredMidDecrementButton = getView().findViewById(R.id.CubeNotScoredMidButton);
         cubeScoredMidCounter = getView().findViewById(R.id.cubeScoredMidCounter);
@@ -218,14 +202,14 @@ public class Teleop extends Fragment {
         cubeMissedDecrementButton = getView().findViewById(R.id.CubeNotMissedButton);
         cubesMissedCounter = getView().findViewById(R.id.CubesMissedCounter);
 
+        teleopCSTabs = getView().findViewById(R.id.TeleopChargeStationTabs);
         miscID = getView().findViewById(R.id.IDMisc);
         miscDescription = getView().findViewById(R.id.IDMiscDirections);
         chargeStationID = getView().findViewById(R.id.IDChargeStation);
-        autonCSTabs = getView().findViewById(R.id.TeleopChargeStationTabs);
         fellOverSwitch = getView().findViewById(R.id.FellOverSwitch);
         fellOverID = getView().findViewById(R.id.IDFellOver);
 
-        nextButton = getView().findViewById(R.id.NextTeleopButton);
+        generateQRButton = getView().findViewById(R.id.NextTeleopButton);
 
         topEdgeBar = getView().findViewById(R.id.topEdgeBar);
         bottomEdgeBar = getView().findViewById(R.id.bottomEdgeBar);
@@ -244,13 +228,13 @@ public class Teleop extends Fragment {
 
         //set listeners for buttons and fill the hashmap with data
 
-        autonCSTabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        teleopCSTabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 Log.d("CLIMB", tab.getText().toString());
-                String t = (String)tab.getText();
+                String t = (String) tab.getText();
                 if (t.equals("PARKED"))
-                   climbHashMap.put("pos", "P");
+                    climbHashMap.put("pos", "P");
                 else if (t.equals("DOCKED"))
                     climbHashMap.put("Pos", "D");
                 else if (t.equals("ENGAGED"))
@@ -261,10 +245,12 @@ public class Teleop extends Fragment {
             }
 
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {}
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
 
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {}
+            public void onTabReselected(TabLayout.Tab tab) {
+            }
         });
 
         conePossessedIncrementButton.setOnClickListener(new View.OnClickListener() {
@@ -353,7 +339,7 @@ public class Teleop extends Fragment {
 
 
         coneMissedIncrementButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view){
+            public void onClick(View view) {
                 int currentCount = Integer.parseInt((String) coneMissedCounter.getText());
                 currentCount++;
                 teleopHashMap.put("ConeMissed", String.valueOf(currentCount));
@@ -362,17 +348,15 @@ public class Teleop extends Fragment {
         });
 
         coneMissedDecrementButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view){
+            public void onClick(View view) {
                 int currentCount = Integer.parseInt((String) coneMissedCounter.getText());
-                if(currentCount > 0)
+                if (currentCount > 0)
                     coneMissedDecrementButton.setEnabled(false);
                 currentCount--;
                 teleopHashMap.put("ConeMissed", String.valueOf(currentCount));
                 updateXMLObjects();
             }
         });
-
-
 
 
         cubePossessedIncrementButton.setOnClickListener(new View.OnClickListener() {
@@ -487,7 +471,7 @@ public class Teleop extends Fragment {
             }
         });
 
-        nextButton.setOnClickListener(new View.OnClickListener() {
+        generateQRButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 context.tabs.getTabAt(1).select();
@@ -495,7 +479,7 @@ public class Teleop extends Fragment {
         });
     }
 
-    private void possessionButtonsEnabledState(boolean enable){
+    private void possessionButtonsEnabledState(boolean enable) {
         conesPossessedID.setEnabled(enable);
         conePossessedIncrementButton.setEnabled(enable);
         conePossessedDecrementButton.setEnabled(enable);
@@ -506,9 +490,7 @@ public class Teleop extends Fragment {
         cubePossessedCounter.setEnabled(enable);
     }
 
-    private void scoringButtonsEnabledState(boolean enable){
-        scoringID.setEnabled(enable);
-        scoringDescription.setEnabled(enable);
+    private void scoringButtonsEnabledState(boolean enable) {
         IDCones.setEnabled(enable);
         IDCubes.setEnabled(enable);
 
@@ -557,27 +539,27 @@ public class Teleop extends Fragment {
         cubesMissedCounter.setEnabled(enable);
     }
 
-    private void miscButtonsEnabledState(boolean enable){
+    private void miscButtonsEnabledState(boolean enable) {
         miscID.setEnabled(enable);
         miscDescription.setEnabled(enable);
         chargeStationID.setEnabled(enable);
-        autonCSTabs.setEnabled(enable);
+        teleopCSTabs.setEnabled(enable);
         fellOverSwitch.setEnabled(enable);
         fellOverID.setEnabled(enable);
-        nextButton.setEnabled(enable);
+        generateQRButton.setEnabled(enable);
     }
 
-    private void allButtonsEnabledState(boolean enable){
+    private void allButtonsEnabledState(boolean enable) {
         possessionButtonsEnabledState(enable);
         scoringButtonsEnabledState(enable);
 
         miscID.setEnabled(enable);
         miscDescription.setEnabled(enable);
         chargeStationID.setEnabled(enable);
-        autonCSTabs.setEnabled(enable);
+        teleopCSTabs.setEnabled(enable);
     }
 
-    private void updateXMLObjects(){
+    private void updateXMLObjects() {
         conePossessedCounter.setText(GenUtils.padLeftZeros(teleopHashMap.get("ConePossessed"), 2));
         coneScoredTopCounter.setText(GenUtils.padLeftZeros(teleopHashMap.get("ConeScoredHigh"), 2));
         coneScoredMidCounter.setText(GenUtils.padLeftZeros(teleopHashMap.get("ConeScoredMid"), 2));
@@ -590,18 +572,18 @@ public class Teleop extends Fragment {
         cubesScoredHybridCounter.setText(GenUtils.padLeftZeros(teleopHashMap.get("CubeScoredHybrid"), 2));
         cubesMissedCounter.setText(GenUtils.padLeftZeros(teleopHashMap.get("CubeMissed"), 2));
 
-        if(setupHashMap.get("FellOver").equals("1")) {
+        if (setupHashMap.get("FellOver").equals("1")) {
             fellOverSwitch.setChecked(true);
-            nextButton.setPadding(150, 0, 150, 0);
-            nextButton.setText(R.string.GenerateQRCode);
+            generateQRButton.setPadding(150, 0, 150, 0);
+            generateQRButton.setText(R.string.GenerateQRCode);
             allButtonsEnabledState(false);
         } else {
             fellOverSwitch.setChecked(false);
-            nextButton.setPadding(150, 0, 185, 0);
-            nextButton.setText(R.string.TeleopNext);
+            generateQRButton.setPadding(150, 0, 185, 0);
+            generateQRButton.setText(R.string.TeleopNext);
             allButtonsEnabledState(true);
             // Disables decrement buttons if counter is at 0
-            if(Integer.parseInt((String) conePossessedCounter.getText()) <= 0)
+            if (Integer.parseInt((String) conePossessedCounter.getText()) <= 0)
                 conePossessedDecrementButton.setClickable(false);
             else
                 conePossessedDecrementButton.setClickable(true);
@@ -657,32 +639,11 @@ public class Teleop extends Fragment {
                 updateXMLObjects();
                 // Set all objects in the fragment to their values from the HashMaps
             } else {
-                if(teleopButtonAnimation != null) {
-                    teleopButtonAnimation.cancel();
-                    nextButton.setBackground(getResources().getDrawable(R.drawable.button_next_states));
-                    nextButton.setTextColor(new ColorStateList(
-                            new int [] [] {
-                                    new int [] {android.R.attr.state_enabled},
-                                    new int [] {}
-                            },
-                            new int [] {
-                                    GenUtils.getAColor(context, R.color.ice),
-                                    GenUtils.getAColor(context, R.color.ocean)
-                            }
-                    ));
-                    nextButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.right_states,0);
-                    nextButton.setSelected(true);
-                }
-                HashMapManager.putSetupHashMap(setupHashMap);
-                HashMapManager.putTeleopHashMap(teleopHashMap);
+                generateQRButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.right_states, 0);
+                generateQRButton.setSelected(true);
             }
+            HashMapManager.putSetupHashMap(setupHashMap);
+            HashMapManager.putTeleopHashMap(teleopHashMap);
         }
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        running = false;
-        timer.cancel();
     }
 }

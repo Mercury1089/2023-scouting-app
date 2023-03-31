@@ -339,7 +339,7 @@ public class HashMapManager{
                 autonHashMap.put("ConeMissed", "0");
 
                 autonHashMap.put("Mobility", "0");
-                autonHashMap.put("AutonPos", "N"); //See
+                autonHashMap.put("AutonPos", "N"); //D, E, or N for Docked, Engaged, or None
                 break;
             case TELEOP:
                 //include all the items that will be in the autonHashMap

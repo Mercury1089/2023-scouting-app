@@ -125,13 +125,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
         android:fontFamily="@font/futura_medium_condensed_bt"
         android:text="@string/Cubes"
         android:textColor="@drawable/cube_text_color_states"
         android:textSize="@dimen/subheader_text_size"
         app:layout_constraintStart_toEndOf="@+id/ConePossessedCounter"
-        app:layout_constraintTop_toBottomOf="@+id/IDScoringDirections" />
+        app:layout_constraintTop_toTopOf="@+id/IDCones" />
 
     <ImageView
         android:id="@+id/rightEdgeBar"
@@ -196,31 +195,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/IDScoring"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/futura_medium_condensed_bt"
-        android:text="@string/ScoringTitle"
-        android:textColor="@drawable/header_states"
-        android:textSize="@dimen/header_text_size"
-        app:layout_constraintStart_toEndOf="@+id/leftEdgeBar"
-        app:layout_constraintTop_toBottomOf="@+id/topEdgeBar" />
-
-    <TextView
-        android:id="@+id/IDScoringDirections"
-        android:layout_width="506dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/open_sans_italic"
-        android:text="@string/ScoringDirections"
-        android:textColor="@drawable/text_states"
-        android:textSize="@dimen/instruction_text_size"
-        app:layout_constraintStart_toStartOf="@+id/IDScoring"
-        app:layout_constraintTop_toBottomOf="@+id/IDScoring" />
-
-    <TextView
         android:id="@+id/AutonSeconds"
         android:layout_width="35dp"
         android:layout_height="wrap_content"
@@ -242,7 +216,7 @@
         android:text="@string/MiscTitle"
         android:textColor="@drawable/header_states"
         android:textSize="@dimen/header_text_size"
-        app:layout_constraintStart_toStartOf="@+id/IDScoring"
+        app:layout_constraintStart_toStartOf="@+id/IDCones"
         app:layout_constraintTop_toBottomOf="@+id/ConesMissedToggle" />
 
     <TextView
@@ -263,7 +237,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="4dp"
         android:layout_marginTop="10dp"
         android:thumb="@drawable/thumb_states"
         android:track="@drawable/track_states"
@@ -290,7 +263,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="4dp"
         android:layout_marginTop="12dp"
         android:thumb="@drawable/thumb_states"
         android:track="@drawable/track_states"
@@ -345,13 +317,14 @@
         android:id="@+id/IDCones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/futura_medium_condensed_bt"
         android:text="@string/Cones"
         android:textColor="@drawable/cone_text_color_states"
         android:textSize="@dimen/subheader_text_size"
-        app:layout_constraintStart_toStartOf="@+id/IDScoring"
-        app:layout_constraintTop_toBottomOf="@+id/IDScoringDirections" />
+        app:layout_constraintStart_toEndOf="@+id/leftEdgeBar"
+        app:layout_constraintTop_toBottomOf="@+id/topEdgeBar" />
 
     <TextView
         android:id="@+id/IDConesPossessed"

@@ -102,8 +102,6 @@ public class Auton extends Fragment {
     private TextView secondsRemaining;
     private TextView teleopWarning;
 
-    private TextView scoringID;
-    private TextView scoringDescription;
     private TextView IDCones;
     private TextView IDCubes;
 
@@ -160,8 +158,6 @@ public class Auton extends Fragment {
         secondsRemaining = getView().findViewById(R.id.AutonSeconds);
         teleopWarning = getView().findViewById(R.id.TeleopWarning);
 
-        scoringID = getView().findViewById(R.id.IDScoring);
-        scoringDescription = getView().findViewById(R.id.IDScoringDirections);
         IDCones = getView().findViewById(R.id.IDCones);
         IDCubes = getView().findViewById(R.id.IDCubes);
 
@@ -393,12 +389,19 @@ public class Auton extends Fragment {
         autonCSTabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
              @Override
              public void onTabSelected(TabLayout.Tab tab) {
-
+                 Log.d("CLIMB", tab.getText().toString());
+                 String t = (String) tab.getText();
+                 if (t.equals("DOCKED"))
+                     autonHashMap.put("AutonPos", "D");
+                 else if (t.equals("ENGAGED"))
+                     autonHashMap.put("AutonPos", "E");
+                 else
+                     autonHashMap.put("AutonPos", "N");
              }
 
              @Override
              public void onTabUnselected(TabLayout.Tab tab) {
-
+                 autonHashMap.put("AutonPos", "N");
              }
 
              @Override
@@ -654,8 +657,6 @@ public class Auton extends Fragment {
     }
 
     private void scoringButtonsEnabledState(boolean enable){
-        scoringID.setEnabled(enable);
-        scoringDescription.setEnabled(enable);
         IDCones.setEnabled(enable);
         IDCubes.setEnabled(enable);
 
